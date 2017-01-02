@@ -1,0 +1,24 @@
+<div class="admin-view">
+  <a id="mobile-nav-toggle" class="mobile-nav-toggle" href="" ng-click="showNav()"><i class="fa fa-bars"></i></a>
+  <div class="user-panel" ng-click="showDropdown($event)">
+    <span class="user-img">
+      <gravatar email="global.user.email" size="40" />
+    </span>
+    <span class="hello">{{ global.user.first_name }} {{ global.user.last_name }}</span>
+    <i class="fa fa-chevron-down"></i>
+  </div>
+
+  <div class="dropdown-list" ng-class="isDropdown">
+    <ul>
+      <li title="Settings">
+        <a href ui-sref="admin.user.edit({userId: global.user._id})" ng-click="showDropdown($event)"><i class="fa fa-cog"></i>Settings</a>
+      </li>
+      <li title="Change password">
+        <a href ui-sref="admin.user.changepassword({userId: global.user._id})" ng-click="showDropdown($event)"><i class="fa fa-key"></i>Change Password</a>
+      </li>
+      <li title="Sign out">
+        <a href ng-click="signout()" ng-click="showDropdown($event)"><i class="fa fa-sign-out"></i>Log Out</a>
+      </li>
+    </ul>
+  </div>
+</div>

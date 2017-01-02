@@ -1,0 +1,26 @@
+/* BREADCRUMBS */
+.breadcrumb(@splitter: ' › ') {
+  padding: 0 0 @baseLine 0;
+
+  li {
+    display: inline-block;
+
+    font-weight: bold;
+  }
+
+  li:after {
+    content: @splitter;
+  }
+
+  li:last-of-type:after {
+    content: '';
+  }
+
+  li a {
+    font-weight: normal;
+  }
+}
+
+nav[itemprop=breadcrumb] {
+  .breadcrumb;
+}

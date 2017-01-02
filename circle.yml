@@ -1,0 +1,42 @@
+general:
+  branches:
+    only:
+      - develop
+      - client
+      - qa
+      - try
+      - master
+
+machine:
+  environment:
+    NODE_ENV: test
+  # Override NodeJS version.
+  node:
+    version: 0.10.20
+
+# You don't have to use this `test` paragraph. If you leave it
+# out, whatever's in npm -> scripts -> test will be run.
+
+# Deploy to Heroku. Don't forget to set the deploy user in CircleCI heroku
+# project config (in their UI)!
+deployment:
+  dev:
+    branch: develop
+    commands:
+      #- git fetch --unshallow
+      - git push -f git@heroku.com:smartnest-pay-dev.git ${CIRCLE_SHA1}:refs/heads/master
+  qa:
+    branch: qa
+    commands:
+      #- git fetch --unshallow
+      - git push -f git@heroku.com:smartnest-pay-qa.git ${CIRCLE_SHA1}:refs/heads/master
+  client:
+    branch: client
+    commands:
+      #- git fetch --unshallow
+      - git push -f git@heroku.com:smartnest-pay-client.git ${CIRCLE_SHA1}:refs/heads/master
+  try:
+    branch: try
+    commands:
+      #- git fetch --unshallow
+      - git push -f git@heroku.com:smartnest-pay-try.git ${CIRCLE_SHA1}:refs/heads/master

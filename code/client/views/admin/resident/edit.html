@@ -1,0 +1,40 @@
+<form name="editForm" class="editForm" ng-submit="editForm.$valid && updateResident(resident)" novalidate>
+  <div class="infoEdit col-xs-12">
+    <ul class="col-xs-12">
+      <li class="col-xs-4">
+        <label for="first_name">First Name<strong>*</strong></label>
+        <input class="input" type="test" id="first_name" name="first_name" ng-model="resident.first_name" error-message required />
+      </li>
+      <li class="col-xs-4">
+        <label for="last_name">Last Name<strong>*</strong></label>
+        <input class="input" type="test" id="last_name" name="last_name" ng-model="resident.last_name" error-message required />
+      </li>
+      <li class="col-xs-4">
+        <label for="birthday">Birthday</label>
+        <input class="input" type="text" date-picker date-utc name="birthday" id="birthday" ng-model="resident.birth_date" error-message min-age="15" max-age="80" />
+      </li>
+      <li class="col-xs-6">
+        <label for="email">Email<strong>*</strong></label>
+        <input class="input" type="email" id="email" name="email" ng-model="resident.email" error-message required unique-email="'{{ resident.email }}'" />
+      </li>
+      <li class="col-xs-6">
+        <label for="phone">Phone</label>
+        <input class="input" type="text" id="phone" name="phone" ng-model="resident.phone" error-message phone />
+      </li>
+      <li class="col-xs-6">
+        <label for="password">New Password</label>
+        <input class="input" type="password" id="password" name="password" ng-model="resident.password" autocomplete="off" />
+      </li>
+      <li class="col-xs-6">
+        <label for="password-confirm">Confirm Password</label>
+        <input class="input" type="password" id="password-confirm" name="password-confirm" ng-model="password_check" autocomplete="off" error-message="{equals: 'Passwords do not match'}" equals="{{ resident.password }}" />
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="buttons">
+    <button type="button" class="normal" ng-click="$state.go('admin.resident.personal.detail', {}, {reload: true})">Cancel</button>
+    <button type="submit" class="button">Update</button>
+  </div>
+</form>

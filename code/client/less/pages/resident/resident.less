@@ -1,0 +1,433 @@
+.state-resident {
+  background: #f0f4f4;
+
+  main {
+    padding: 0;
+    font-size: 0.9em;
+
+  /* structure elems */
+    header {
+      height: 60px;
+      background: #fff;
+      position: fixed;
+      display: block;
+      top: 0;
+      left: 0;
+      right: 0;
+      border: 1px solid #ccc;
+      z-index: 1000;
+    }
+  }
+
+  .case {
+    padding: 60px 0 0 310px;
+
+    @media screen and (max-width: 1099px) {
+      padding: 60px 0 0 60px;
+    }
+  }
+
+  .sidebar {
+    width: 310px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #333435;
+    z-index: 1001;
+
+    @media screen and (max-width: 1099px) {
+        width: 60px;
+    }
+  }
+
+  /* design elems */
+  .logo {
+    background: #009ad0 url('../img/general/logo.png') center center no-repeat;
+    width: 310px;
+    height: 60px;
+    display: block;
+    overflow: hidden;
+    color: #fff;
+    text-decoration: none;
+    text-indent: 100%;
+
+    @media screen and (max-width: 1099px) {
+      height: 60px;
+      width: 60px;
+      background-position: -11px  center;
+    }
+  }
+
+  .user-panel {
+    position: absolute;
+    top: 20px;
+    right: 60px;
+    height: 100%;
+
+    &:hover {
+      color: @baseColor;
+      i {
+        color: @baseColor;
+      }
+    }
+    @media screen and (max-width: 1099px) {
+      top: 22px;
+      right: 30px;
+    }
+
+    .user-img {
+      margin-top: -18px;
+      margin-right: 10px;
+      overflow: hidden;
+      height: 50px;
+      width: 50px;
+      display: block;
+      float: left;
+    }
+
+    a {
+      text-decoration: none;
+      color: #009ad0;
+    }
+
+    i {
+      font-size: 12px;
+      color: #333435;
+      margin-left: 10px;
+    }
+  }
+  @-webkit-keyframes shake {
+    0% { }
+    50% {
+      -webkit-transform: rotate(10deg);
+    }
+    100% { }
+  }
+  @keyframes shake {
+    0% { }
+    50% {
+      transform: rotate(10deg);
+    }
+    100% { }
+  }
+
+  .dropdown-list {
+    background-color: #fff;
+    position: absolute;
+    right: 25px;
+    top: 59px;
+    width: 180px;
+    z-index: 1000;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0px 0px 10px #ccc;
+    -webkit-box-shadow: 0px 0px 10px #ccc;
+    -moz-box-shadow: 0px 0px 10px #ccc;
+    &.is-shown {
+      display: block;
+      -webkit-animation-name: shake;
+      -webkit-animation-duration: 100ms;
+      -webkit-transform-origin:50% 50%;
+      -webkit-animation-iteration-count: 1;
+      -webkit-animation-timing-function: linear;
+      animation-name: shake;
+      animation-duration: 100ms;
+      transform-origin:50% 50%;
+      animation-iteration-count: 1;
+      animation-timing-function: linear;
+    }
+    &.is-hidden {
+      display: none;
+    }
+    ul {
+      display: inline-block;
+      margin: 0;
+      border-left: none;
+      width: 100%;
+    }
+
+    li {
+      display: block;
+      padding: 0;
+      border-bottom: 1px solid #ccc;
+      margin: 0;
+
+      &:last-child {
+        border: none;
+      }
+
+      a {
+        display: block;
+        padding: 15px;
+        color: #545456;
+        &:hover {
+          color: @baseColor;
+          text-decoration: none;
+        }
+        i {
+          color: inherit;
+          padding-right: 10px;
+        }
+      }
+    }
+  }
+
+  nav {
+    ul {
+      list-style-type: none;
+      margin: 30px 0 0;
+      padding: 0;
+    }
+    li {
+      padding-left: 25px;
+      margin: 15px 0;
+      @media screen and (max-width: 1099px) {
+        padding: 0;
+        text-align: center;
+      }
+    }
+    a {
+      margin-left: 25px;
+      color: #A3A4A4;
+      text-decoration: none;
+
+      &:hover {
+        color: #C0C0C0;
+      }
+
+      @media screen and (max-width: 1099px) {
+        margin-left: 0;
+
+        span {
+          display: none;
+        }
+      }
+
+      &.active{
+        color: #fff;
+      }
+    }
+  }
+
+}
+
+.state-resident-history, .state-resident-paymyrent, .state-resident-settings, .state-resident-changepassword {
+  .content {
+    .clearfix;
+    margin: 0 auto;
+    width: 100%;
+    padding: 30px 100px;
+    @media (max-width: 800px) {
+      padding: 30px 50px;
+    }
+    @media (max-width: 700px) {
+      padding: 15px;
+    }
+    @media (max-width: 370px) {
+      padding: 0;
+    }
+  }
+  .detail {
+    border: 1px solid #ccc;
+    border-bottom: none;
+    border-radius: 15px 15px 0 0;
+    padding: 0;
+    background: #ffffff;
+    text-align: center;
+    position: relative;
+
+
+    @media (max-width: 370px) {
+      border: none;
+      border-radius: 0;
+    }
+
+    > div {
+      padding: 0;
+    }
+
+    .header {
+      font-size: 2em;
+      padding: 20px 0;
+      background-color: #f6f8f8;
+      border-radius: 15px 15px 0 0;
+      position: relative;
+      z-index: 2;
+
+      @media (max-width: 370px) {
+        border-radius: 0;
+      }
+      @media (max-width: 480px) {
+        padding: 10px 0;
+        font-size: 1.5em;
+      }
+    }
+    .btn {
+      padding: 12px 24px;
+    }
+  }
+
+  .table-detail {
+    td {
+      padding-left: 0;
+      padding-right: 0;
+
+      .payment-detail {
+        height: 135px;
+        border: 1px solid #5bc0de;
+        border-left: none;
+        border-right: none;
+        margin-top: 5px;
+        padding: 5px 0px 15px;
+        &:last-child {
+          padding-right: 5px;
+          border-right: 1px solid #5bc0de;
+          border-radius: 0 0 5px 0;
+          border-top: none;
+        }
+        div {
+          opacity: 0.5;
+          padding: 5px 0;
+          @media (max-width: 700px) and (min-width: 481px) {
+            padding: 1px;
+          }
+        }
+        .date {
+          font-weight: bold;
+        }
+        @media (max-width: 850px) and (min-width: 701px) {
+          height: 115px;
+        }
+        @media (max-width: 480px) {
+          height: 115px;
+          padding: 0;
+        }
+      }
+      .first {
+        padding-left: 5px;
+        border-left: 1px solid #5bc0de;
+        border-radius: 5px 0 0 5px;
+        }
+      .done {
+        div {
+          opacity: 1;
+        }
+      }
+      .payment-detail-header {
+        border: 1px solid #5bc0de;
+        border-bottom: none;
+        border-radius: 5px 5px 0 0;
+        margin-top: -1px;
+        padding-bottom: 5px;
+        margin-bottom: -5px;
+      }
+    }
+    .fa-stack {
+      position: relative;
+      display: inline-block;
+      width: 2em;
+      height: 2em;
+      line-height: 2em;
+      vertical-align: middle;
+    }
+    .fa-inverse {
+      font-weight: bold;
+    }
+  }
+  .table-detail-0, .table-detail-1 {
+    td {
+      .payment-detail {
+        border: 2px solid @orange;
+        border-left: none;
+        border-right: none;
+
+        &:last-child {
+          border-right: 2px solid @orange;
+        }
+        &.done{
+          .fa-stack{
+            i:first-child{
+              color: @orange;
+            }
+            i:last-child{
+              color: #fff;
+            }
+          }
+        }
+      }
+      .first {
+        border-left: 2px solid @orange;
+      }
+      .payment-detail-header {
+        border: 2px solid @orange;
+        border-bottom: none;
+        color: @orange;
+        font-weight: bold;
+      }
+    }
+  }
+  .table-detail-2, .table-detail-3 {
+    td {
+      .payment-detail {
+        border: 2px solid @purple;
+        border-left: none;
+        border-right: none;
+
+        &:last-child {
+          border-right: 2px solid @purple;
+        }
+        &.done{
+          .fa-stack{
+            i:first-child{
+              color: @purple;
+            }
+            i:last-child{
+              color: #fff;
+            }
+          }
+        }
+      }
+      .first {
+        border-left: 2px solid @purple;
+      }
+      .payment-detail-header {
+        border: 2px solid @purple;
+        border-bottom: none;
+        color: @purple;
+        font-weight: bold;
+      }
+    }
+  }
+  .table-detail-4 {
+    td {
+      .payment-detail {
+        border: 2px solid @green;
+        border-left: none;
+        border-right: none;
+
+        &:last-child {
+          border-right: 2px solid @green;
+        }
+        &.done{
+          .fa-stack{
+            i:first-child{
+              color: @green;
+            }
+            i:last-child{
+              color: #fff;
+            }
+          }
+        }
+      }
+      .first {
+        border-left: 2px solid @green;
+      }
+      .payment-detail-header {
+        border: 2px solid @green;
+        border-bottom: none;
+        color: @green;
+        font-weight: bold;
+      }
+    }
+  }
+}

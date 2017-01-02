@@ -1,0 +1,35 @@
+<div class="header"></div>
+<section class="signup-content">
+  <div class="info col-xs-12">
+    <h1>Paying your rent was never this easy!</h1>
+    <div class="text" ng-show="isActive('personal')">
+      Why wait for your <strong>Landlord</strong> to catch up with technology?<br />
+      <strong>SmartNest</strong> takes the hassle and worry out of paying rent.
+    </div>
+    <div class="text" ng-show="isActive('rent')">
+      Not having to pay the rent yourself is the next best thing to not having to pay it at all.
+    </div>
+    <div class="text" ng-show="isActive('done')">
+      Are you still writing one check every month? Not your parents way of paying the rent.
+    </div>
+  </div>
+  <div class="progress-wrap col-xs-12">
+    <div class="progress-line clearfix">
+        <div class="step active">sign up</div>
+        <hr class="between" />
+        <div class="step" ng-class="{active: isActive('rent') || isActive('done')}">set up your rent</div>
+        <hr class="between" />
+        <div class="step" ng-class="{active: isActive('done')}">you're done!</div>
+    </div>
+  </div>
+  <div class="login-box" ng-show="!global.user">
+
+    <div ui-view />
+    </div>
+
+    <div class="login-underbox">
+      <a ui-sref="^.send_reset">Forgot <strong>password</strong>?</a> /
+      <a ui-sref="^.signin">Already have an <strong>account</strong>?</a>
+    </div>
+  </div>
+</section>

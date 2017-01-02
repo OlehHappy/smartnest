@@ -1,0 +1,250 @@
+form {
+  input.has-error, select.has-error, textarea.has-error {
+    border-color: @errorColor;
+  }
+  .has-error {
+    input, select, textarea {
+      border-color: @errorColor;
+    }
+    &.input, &.select, &.textarea {
+      border-color: @errorColor;
+    }
+  }
+
+  p.error-message {
+    margin: 0;
+    font-size: 12px;
+
+    small {
+      font-weight: bold;
+      color: @errorColor;
+    }
+  }
+  label {
+    /* required field notificator */
+    strong {
+      margin-left: 5px;
+      color: @warningColor;
+    }
+  }
+  .radios {
+
+    label {
+      margin-right: 5px;
+    }
+  }
+  .field {
+    margin-bottom: 20px;
+  }
+  .buttons {
+    text-align: center;
+    margin: @baseLine 0;
+    @media (max-width: 480px) {
+      margin: 0;
+    }
+  }
+}
+
+/* Labels */
+.label {
+  display: block;
+  padding: 16px 0 0 0;
+  color: #b2b4b6;
+  text-transform: uppercase;
+  font-size: 75%;
+  font-weight: bold;
+  text-align: left;
+  cursor: default;
+  @media (max-width: 480px) {
+    padding: 12px 0 0 0;
+  }
+}
+label.label {
+  cursor: pointer;
+}
+input[type=checkbox] + label {
+  font-weight: normal;
+
+  &.checked {
+    font-weight: bold;
+  }
+}
+/* FORMS */
+// Form elements
+input.input,
+select.select {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  .box-shadow(inset 1px 1px 2px rgba(0,0,0,0.1));
+  height: 36px;
+  //height: @baseLine * 2;
+  padding: 0 @baseLine / 2;
+  width: 100%;
+  background: #fff;
+  font-size: 16px;
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+    padding: 0 @baseLine / 3;
+  }
+}
+select.select {
+  padding: 0 0 0 @baseLine / 2;
+  @media (max-width: 480px) {
+    padding: 0 @baseLine / 3;
+  }
+}
+input.input:focus,
+select.select:focus {
+  border: 1px solid #777;
+ .box-shadow(none);
+
+ & + .input-append-icon {
+    color: #000;
+  }
+}
+.input-inline, .input-inline-big {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  .box-shadow(none);
+  height: 28px;
+  padding: 0 4px;
+  font-size: 14px;
+  background: #fff;
+  display: inline-block;
+  width: auto;
+  @media (max-width: 480px) {
+    padding: 0 3px;
+    font-size: 12px;
+    height: 24px;
+  }
+
+  &[type=checkbox] {
+    width: auto;
+  }
+}
+.input-inline-big {
+  height: 36px;
+  font-size: 18px;
+  width: 100%;
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+    height: 28px;
+  }
+}
+.label-inline {
+  display: inline-block;
+  margin-right: 5px;
+}
+.big-label-inline-wrapper {
+  .clearfix;
+  margin: 0;
+}
+.big-label-inline {
+  width: 48%;
+  float: left;
+  display: block;
+  margin-right: 2%;
+  .clearfix;
+}
+.edit-list {
+  margin: 15px 0;
+  .clearfix;
+
+  &.edit-delimiter {
+    border-top: 1px solid #ccc;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+  }
+  li {
+    margin: 5px 0;
+    .clearfix;
+
+    &.edit-half {
+      float: left;
+      width: 48%;
+      margin-right: 2%;
+
+      input {
+        width: 100%;
+        margin-left: 0;
+      }
+    }
+    &.edit-spaceup {
+      margin-top: 20px;
+    }
+  }
+}
+input.input[type=checkbox] {
+  border: inherit;
+  height: auto;
+  width: auto;
+  background: inherit;
+}
+.input-date {
+  position: relative;
+  max-width: 130px;
+}
+.input-append-icon {
+  position: relative;
+  display: inline-block;
+  color: #999;
+
+  i {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: inherit;
+  }
+}
+textarea.textarea {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+ .box-shadow(inset 1px 1px 2px rgba(0,0,0,0.1));
+  padding: @baseLine / 2;
+  width: 100%;
+  font-size: 16px;
+  resize: none;
+  @media (max-width: 480px) {
+    padding: @baseLine / 3;
+    font-size: 14px;
+  }
+}
+fieldset:after {
+  content: '';
+  clear: both;
+  display: table;
+}
+fieldset div {
+  margin:0 0 @baseLine 0;
+}
+fieldset div > span {
+  position: relative;
+  display: block;
+}
+fieldset.two div {
+  float: left;
+  padding: 30px 0;
+  width: 50%;
+}
+fieldset div p.help {
+  margin: 0;
+  color: #777;
+}
+fieldset div.two:after {
+  clear: both;
+  display: table;
+  content: '';
+}
+fieldset div.two span {
+  display: block;
+  float: left;
+  padding: 0 0 0 (@baseLine / 2);
+  width: 50%;
+}
+fieldset div.two span:first-of-type {
+  padding: 0 10px 0 0;
+}
+/* END FORMS */

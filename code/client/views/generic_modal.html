@@ -1,0 +1,15 @@
+<header>
+  <button class="close" ng-click="cancel()">&times;</button>
+  <h2>{{modalConfig.message || ""}}</h2>
+</header>
+
+
+<dialog-body class="general_modal">
+  <i class="fa fa-3x {{modalConfig.icon}}" ng-if="modalConfig.icon"></i>
+  <div class="message_body" ng-if="modalConfig.message_body">{{modalConfig.message_body}}</div>
+
+  <div class="buttons">
+    <button class="{{modalConfig.style.cancel || 'normal'}}" ng-click="cancel()">{{modalConfig.cancel || "Cancel"}}</button>
+    <button class="{{modalConfig.style.ok || 'button'}}" ng-click="ok()">{{modalConfig.ok || "Ok"}}</button>
+  </div>
+</dialog-body>

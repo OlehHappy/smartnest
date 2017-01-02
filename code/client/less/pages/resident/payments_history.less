@@ -1,0 +1,157 @@
+.state-resident-history {
+  .detail {
+    .data {
+      background-color: #009ad0;
+      color: #ffffff;
+
+      span {
+        padding: 5px 30px 15px;
+        font-weight: lighter;
+        text-align: left;
+        color: #B9DCEE;
+        font-size: 1em;
+
+        @media (max-width: 700px) {
+          text-align: center;
+        }
+      }
+
+      .number {
+        font-size: 2.6em;
+        padding: 18px 30px 0px 30px;
+        font-weight: normal;
+        text-align: left;
+        color: #fff;
+        @media (max-width: 800px) {
+          padding: 18px 15px 0px 15px;
+        }
+        @media (max-width: 700px) {
+          text-align: center;
+        }
+        @media (max-width: 480px) {
+          padding: 10px 0 0 0;
+          font-size: 1.8em;
+        }
+      }
+      @media (max-width: 480px) {
+        width: 33%;
+      }
+    }
+  }
+  .history {
+    border: 1px solid #ccc;
+    border-radius: 0 0 15px 15px;
+    text-align: center;
+    padding: 0;
+    background: #fff;
+
+    @media (max-width: 700px) {
+      padding: 0 0 20px 0;
+    }
+    span {
+      padding: 20px 0;
+      font-size: 2em;
+    }
+    .table-wrap {
+      padding: 0 0 20px 0;
+
+      @media (max-width: 850px) and (min-width: 701px) {
+        font-size: 0.8em;
+        padding: 0 0 20px 0;
+      }
+      @media (max-width: 480px) {
+        font-size: 0.75em;
+        padding: 0 0 10px 0;
+      }
+      @media (max-width: 400px) {
+        font-size: 0.65em;
+      }
+    }
+    .history-table {
+      text-align: center;
+      margin: 0;
+      tr {
+        &:nth-child(4n+1) {
+          background-color: #f6f8f8;
+        }
+        .payment-detail-header, payment-detail {
+          background-color: #fff;
+        }
+      }
+      .fa-stack {
+        i:first-child {
+          font-size: 2em;
+        }
+        i:last-child {
+          color: #ffffff;
+          font-size: 1em;
+        }
+      }
+      .col-xs-4 {
+        @media (max-width: 700px) {
+          width: 33.33333333%;
+        }
+      }
+    }
+    th {
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+    thead {
+      background-color: #f6f8f8;
+    }
+    td, th {
+      padding: 10px;
+
+      @media (max-width: 991px) {
+        padding: 4px;
+      }
+    }
+    tbody {
+      tr {
+        border-top: 1px solid #ccc;
+      }
+    }
+    button {
+      width: 150px;
+
+      @media (max-width: 850px) {
+        width: 120px;
+        padding: 2px;
+      }
+      @media (max-width: 480px) {
+        width: 100px;
+        padding: 2px;
+        font-size: 1em;
+      }
+    }
+    .transaction-step-0, .transaction-step-1 {
+      background-color: @orange;
+      border-color: darken(@orange, 10%);
+
+      &:focus, &:hover{
+        background-color: lighten(@orange, 10%);
+      }
+    }
+    .transaction-step-2, .transaction-step-3 {
+      background-color: @purple;
+      border-color: darken(@purple, 10%);
+
+      &:focus, &:hover{
+        background-color: lighten(@purple, 10%);
+      }
+    }
+    .transaction-step-4 {
+      background-color: @green;
+      border-color: darken(@green, 10%);
+
+      &:focus, &:hover{
+        background-color: lighten(@green, 10%);
+      }
+    }
+  }
+  .thumb {
+    font-weight: bold;
+  }
+}

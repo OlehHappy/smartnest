@@ -1,0 +1,103 @@
+.state-resident-settings  {
+
+  .settings {
+    border: 1px solid #ccc;
+    border-radius: 0 0 15px 15px;
+    background-color: #fff;
+    .menu {
+      padding: 20px 30px;
+
+      li {
+        display: inline-block;
+        padding: 10px 0;
+        border-bottom: 1px solid #ccc;
+        width: 33.33333333%;
+        &.active {
+          font-weight: bold;
+        }
+        @media (max-width: 520px) {
+          min-height: 65px;
+        }
+      }
+      a{
+        color: #363636;
+        text-decoration: none;
+      }
+      .active {
+        a{
+          color: @baseColor;
+        }
+      }
+      @media (max-width: 991px) {
+        padding: 10px;
+      }
+      @media (max-width: 700px) {
+        text-align: center;
+      }
+    }
+    .form-wrap {
+      padding-bottom: 20px;
+    }
+    .form {
+      @media (max-width: 991px) {
+        padding: 10px 0;
+      }
+    }
+    p:not(.error-message) {
+      font-style: italic;
+      color: #363636;
+      font-size: 0.9em;
+      margin: 15px 0;
+    }
+    .buttons {
+      text-align: center;
+      padding: 5px 0;
+    }
+    button {
+      padding: 10px 50px;
+      @media (max-width: 480px) {
+        padding: 0 50px;
+      }
+    }
+    .input {
+      &.individual, &.email {
+        margin-bottom: 0;
+      }
+      &.individual {
+        @media (max-width: 991px) {
+          margin-bottom: 20px;
+        }
+      }
+    }
+    .switch {
+      padding-bottom: 20px;
+      .switcher-wrapper {
+        width: auto;
+        .switcher-on, .switcher-off {
+          width: auto;
+          font-size: 16px;
+          margin: 0 10px;
+          @media (max-width: 430px) {
+            margin: 0;
+            max-width: 80px;
+          }
+        }
+      }
+    }
+    .profile-pic {
+      text-align: center;
+      float: right;
+      padding-top: 20px;
+      @media (max-width: 991px) {
+        padding: 0;
+      }
+    }
+    .profile-text {
+      text-align: center;
+    }
+
+    @media (max-width: 991px) {
+      padding: 0;
+    }
+  }
+}

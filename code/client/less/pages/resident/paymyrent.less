@@ -1,0 +1,471 @@
+.state-resident-paymyrent {
+  .detail {
+    .rent {
+      border-top: 1px solid #ccc;
+
+      .number, .your-rent {
+        padding: 30px 15px 0 15px;
+
+        @media (max-width: 480px) {
+          padding: 10px 0 0 0;
+        }
+      }
+      .your-rent {
+        strong {
+          width: 300px;
+          display: block;
+          margin: 0 auto;
+          text-align: left;
+          @media (max-width: 1550px) {
+            width: 250px;
+          }
+          @media (max-width: 1400px) {
+            width: 200px;
+          }
+          @media (max-width: 1150px) {
+            width: 170px;
+          }
+          @media (max-width: 800px) and (min-width: 701px) {
+            width: 170px;
+          }
+          @media (max-width: 700px) {
+            width: 200px;
+          }
+        }
+      }
+      .number {
+        font-size: 4em;
+        color: #009ad0;
+        padding: 0 15px 18px 15px;
+        font-weight: normal;
+        p.error-message {
+          top: 80px;
+        }
+        @media (max-width: 1250px) {
+          padding: 0 5px 18px 5px;
+        }
+        @media (max-width: 1150px) {
+          font-size: 3em;
+        }
+        @media (max-width: 850px) and (min-width: 701px) {
+          padding: 0 0 18px 0;
+          font-size: 2.5em;
+        }
+        @media (max-width: 480px) {
+          padding: 0 0 18px 0;
+          font-size: 2em;
+        }
+      }
+      @media (max-width: 1250px) {
+        padding: 0;
+      }
+    }
+    .options {
+      border-top: 1px solid #ccc;
+      & > div {
+        .clearfix;
+
+        @media (max-width: 700px) {
+          border-left: none;
+          border-right: none;
+        }
+        & > span {
+          padding: 10px 15px 0 15px;
+        }
+      }
+      select {
+        margin: 10px 15px 13px 15px;
+      }
+      .pay-it {
+        border-bottom: none;
+        padding: 0;
+        max-width: 200px;
+        margin: 0 auto;
+        text-align: left;
+        .date {
+          opacity: 0.6;
+          font-size: 1.2em;
+          padding-bottom: 29px;
+          @media (max-width: 480px) {
+            padding-bottom: 23px;
+          }
+        }
+        .recurring {
+          padding: 0;
+          input {
+            max-width: 150px;
+          }
+        }
+        p.error-message {
+          top: 50px;
+          right: 0px;
+          @media (max-width: 480px) {
+            top: 45px;
+          }
+        }
+        .dropdown-menu {
+          left: 0 !important;
+          @media (max-width: 480px) {
+            top: 40px !important;
+            left: -50px !important;
+          }
+        }
+      }
+      .landlord {
+        border-top: none;
+        padding: 20px 0;
+        max-width: 200px;
+        margin: 0 auto;
+        text-align: left;
+        div {
+          font-size: 1.2em;
+        }
+      }
+      .input-group.date-picker {
+        padding: 5px 0;
+        .btn {
+          height: 42px;
+          @media (max-width: 480px) {
+            height: 36px;
+            margin: 0;
+            line-height: initial;
+          }
+        }
+      }
+      input.date-picker {
+        border-radius: 0 3px 3px 0;
+        margin: 0;
+      }
+      .landlord-payment {
+        padding: 5px 0;
+      }
+    }
+    .pay {
+      border-top: 1px solid #ccc;
+      padding: 0;
+      .buttons {
+        text-align: center;
+        margin: 21px 0;
+        padding: 0;
+      }
+      button {
+        font-size: 1.5em;
+        @media (max-width: 1400px) {
+          font-size: 1.25em;
+        }
+        @media (max-width: 1250px) {
+          font-size: 1em;
+        }
+        @media (max-width: 800px) {
+          font-size: 1.2em;
+        }
+      }
+
+      .switcher-wrapper {
+        i {
+          &:hover {
+            color: @baseColor;
+            cursor: pointer;
+          }
+        }
+        .tooltip {
+            opacity: 1;
+          .tooltip-inner {
+            background-color: @baseColor;
+            color: #fff;
+          }
+          .tooltip-arrow {
+            border-left-color: @baseColor;
+            border-right-color: @baseColor;
+          }
+        }
+      }
+    }
+
+    &:before, &:after{
+      content: " ";
+      height: 100%;
+      width: 1px;
+      background: #ccc;
+      position: absolute;
+      top: 0;
+      left: 33.33%;
+      @media (max-width: 700px) {
+        display: none;
+      }
+    }
+    &:after{
+      left: 66.66%;
+    }
+  }
+  .payments {
+    background-color: #219BD1;
+    border: 1px solid #ccc;
+    border-radius: 0 0 15px 15px;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+
+    @media (max-width: 700px) {
+      padding: 20px 0;
+    }
+    @media (max-width: 550px) {
+      border-radius: 0;
+    }
+    span {
+      padding: 20px 0;
+      font-size: 2em;
+
+      @media (max-width: 480px) {
+        font-size: 1.5em;
+        padding: 10px 0;
+      }
+    }
+    .table-wrap {
+      padding: 0 0 20px 0;
+
+      @media (max-width: 850px) and (min-width: 701px) {
+        font-size: 0.8em;
+        padding: 0 0 20px 0;
+      }
+      @media (max-width: 480px) {
+        font-size: 0.8em;
+        padding: 0 0 10px 0;
+      }
+      @media (max-width: 400px) {
+        font-size: 0.65em;
+      }
+    }
+    .payments-table {
+      text-align: center;
+      color: #fff;
+      tr {
+        &:last-child {
+          border: none;
+        }
+      }
+      span {
+        padding: 10px 0;
+        font-size: 1em;
+        display: block;
+      }
+      .fa-stack {
+        i:first-child {
+          font-size: 2em;
+        }
+        i:not(:first-child) {
+          color: #009ad0;
+          font-size: 1em;
+        }
+      }
+      .col-xs-4 {
+        width: 33.33333333%;
+       }
+
+      .table-detail {
+        td {
+          .payment-detail {
+            border: 2px solid #80CDE9;
+            border-left: none;
+            border-right: none;
+
+            &:last-child {
+              border-right: 2px solid #80CDE9;
+              border-top: none;
+            }
+            &.done{
+              .fa-stack{
+                i:first-child{
+                  color: #fff;
+                }
+                i:last-child{
+                  color: #219BD1;
+                }
+              }
+            }
+          }
+          .first {
+            border-left: 2px solid #80CDE9;
+          }
+          .payment-detail-header {
+            border: 2px solid #80CDE9;
+            border-bottom: none;
+            color: #80CDE9;
+            font-weight: bold;
+          }
+        }
+      }
+      .transaction-step-0,
+      .transaction-step-1,
+      .transaction-step-2,
+      .transaction-step-3,
+      .transaction-step-4, {
+        background: transparent;
+        border: 2px solid #80CDE9;
+        color: #80CDE9;
+
+        &:focus, &:hover{
+          color: #fff;
+          border: 2px solid #fff;
+          background: transparent;
+        }
+      }
+    }
+    thead {
+      color: #fff;
+      background: #1E91C1;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+    th {
+      text-align: center;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 10px 0;
+      background: none;
+      width: 33.33333333%;
+      @media (max-width: 480px) {
+        padding: 4px;
+      }
+    }
+    td {
+      padding: 10px;
+      &.no-payments {
+        color: #0177a0;
+      }
+      @media (max-width: 480px) {
+        padding: 4px;
+      }
+    }
+    .btn-recieved {
+      padding: 10px 12px;
+      background-color: #009ad0;
+      border-color: #fff;
+
+      &:focus, &:hover {
+        color: #fff;
+        background-color: #009af0;
+      }
+      @media (max-width: 480px) {
+        padding: 5px;
+        font-size: 1em;
+      }
+    }
+    .transaction-step-0, .transaction-step-1 {
+      background-color: @orange;
+      border-color: darken(@orange, 10%);
+
+      &:focus, &:hover{
+        background-color: lighten(@orange, 10%);
+      }
+    }
+    .transaction-step-2, .transaction-step-3 {
+      background-color: @purple;
+      border-color: darken(@purple, 10%);
+
+      &:focus, &:hover{
+        background-color: lighten(@purple, 10%);
+      }
+    }
+    .transaction-step-4 {
+      background-color: @green;
+      border-color: darken(@green, 10%);
+
+      &:focus, &:hover{
+        background-color: lighten(@green, 10%);
+      }
+    }
+  }
+
+  .input-group {
+    width: 300px;
+    margin: 0 auto;
+    @media (max-width: 1550px) {
+      width: 250px;
+    }
+    @media (max-width: 1400px) {
+      width: 200px;
+    }
+    @media (max-width: 1150px) {
+      width: 170px;
+    }
+    @media (max-width: 800px) and (min-width: 701px) {
+      width: 170px;
+    }
+    @media (max-width: 700px) {
+      width: 200px;
+    }
+  }
+  .input-group-addon {
+    font-size: 1em;
+    color: #545456;
+    background-color: #fff;
+    font-weight: normal;
+    padding: 6px 12px;
+    @media (max-width: 480px) {
+      font-size: 1.6em;
+    }
+  }
+  .addon1 {
+    color: #009ad0;
+    font-weight: normal;
+    opacity: 0.5;
+  }
+  .addon2 {
+    font-size: 0.3em;
+    padding: 0;
+    @media (max-width: 480px) {
+      font-size: 0.5em;
+    }
+  }
+  .plus, .minus {
+    padding: 6px 12px;
+  }
+  .minmax {
+    opacity: 0.5;
+  }
+  .input-number {
+    font-size: 1em;
+    height: 78px;
+    padding: 0;
+    color: inherit;
+    border-color: #ccc;
+    border-left: none;
+    box-shadow: none;
+    @media (max-width: 480px) {
+      font-size: 1.6em;
+    }
+    &:focus {
+      //border-left: 1px solid #66afe9;
+    }
+
+
+  }
+  .ng-invalid {
+    //border-color: #f44336;
+    //border-left: 1px solid #f44336 !important;
+  }
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+  }
+  input[type=number] {
+    -moz-appearance:textfield;
+  }
+  dialog {
+    > div {
+      max-width: 600px;
+    }
+  }
+  .thumb {
+    color: #fff;
+    font-weight: bold;
+    &:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,280 @@
+/* COMPLETE */
+
+/* header */
+#invite main {
+  max-width: inherit;
+  padding: 0;
+}
+
+#complete header {
+  position: relative;
+
+  height: 490px;
+  padding: 100px 0 0 0;
+
+  background: #494949 url(../img/invite/header.jpg) center center no-repeat;
+  background-size: cover;
+}
+
+#complete header #thanks {
+  margin: 0 auto;
+  max-width: 768px;
+  padding: 140px 20px 0 20px;
+  background: url(../img/invite/icon-check.png) center top no-repeat;
+  text-align: center;
+
+  h1 {
+    color:#fff;
+    font-size: 26px;
+    font-weight: 600;
+    line-height: @baseLine * 2;
+  }
+
+  p {
+    color: #aaa;
+    font-size: 18px;
+  }
+}
+
+
+#complete header nav {
+  position: absolute;
+  bottom: 0;
+  border-top: 1px dashed #999;
+  height: 70px;
+  width: 100%;
+
+  ul {
+    position: relative;
+    top: -2px;
+
+    border-top: 3px solid #999;
+    margin: 0 auto;
+    max-width: 728px;
+    padding: @baseLine 0 0 0;
+
+    text-align: center;
+  }
+
+  li {
+    position: static;
+
+    border: 0;
+    margin: 0;
+
+    color: #999;
+  }
+
+  li:before {
+    position: absolute;
+    left: 50%;
+
+    border: 6px solid transparent;
+    border-radius: 14px;
+  .box-sizing(content-box);
+    height: 17px;
+    margin: -37px 0 0 -12px;
+    width: 17px;
+
+    background: #999;
+  .background-clip(content-box);
+
+    content: '';
+  }
+
+  li.active:nth-child(2):after {
+    position: absolute;
+    left: 0;
+    top: -3px;
+    height: 3px;
+    width: 50%;
+    background: #fff;
+    content: '';
+  }
+
+  li.active {
+    color: #fff;
+    font-weight: 700;
+  }
+
+  li.active:before {
+    background: #fff;
+  .background-clip(content-box);
+  }
+
+  li.current:before {
+    border: 6px solid #fff;
+    border: 6px solid rgba(255,255,255,0.3);
+  }
+
+  li:first-child {
+    position: absolute;
+    left: 0;
+    top: 21px;
+    text-align:left;
+  }
+
+  li:first-child:before {
+    left: 0;
+    margin-left: -6px;
+  }
+
+  li:last-child {
+    position: absolute;
+    right: 0;
+    top: @baseLine;
+    text-align: right;
+  }
+
+  li:last-child:before {
+    left: inherit;
+    right: -6px;
+  }
+
+  li.active:last-child:after {
+    position: absolute;
+    right: 0;
+    top: -24px;
+    height: 3px;
+    width: 364px;
+    background: #fff;
+    content: '';
+  }
+}   
+  
+
+/* steps */
+#complete hr {
+  border: 0;
+  height: 1px;
+  margin: 0;
+  background: #eee;
+}
+
+#complete form {
+  border-bottom: 1px solid #eee;
+  background: #f9f9f9;
+}
+
+#complete fieldset {
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: @baseLine;
+}
+
+#complete fieldset button {
+  float: right;
+}
+
+#complete fieldset button.normal {
+  float: left;
+}
+
+
+/* Step 1 */
+#complete #step-1 #results {
+  label {
+    border-bottom: 2px solid #41464a;
+    display: block;
+    margin: 0 0 30px 0;
+    padding: 0 0 10px 0;
+
+    text-transform: uppercase;
+  }
+
+  p {
+    border-bottom: 1px solid #efefef;
+    padding: 14px 0;
+  }
+
+  p:last-of-type {
+    border: 0;
+    margin: 0 0 30px 0;
+  }
+
+  p > span {
+    float: right;
+  }
+
+  p span span {
+    color: #69b249;
+  }
+}
+
+
+/* Step 2 */
+#complete #step-2 fieldset {
+  .send-code {
+    position: relative;
+  }
+
+  .send-code button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 0 3px 3px 0;
+    height: 100%;
+    width: auto;
+  }
+
+  div p {
+    clear: both;
+  }
+
+  .notification h3 {
+    color: #555;
+    font-size: @baseFont;
+    font-weight: 700;
+  }
+
+  .notification div {
+    display: block;
+    margin: 0;
+    padding: 0;
+    color: #999;
+    font-weight: 400;
+  }
+
+  .notification label {
+    .inline-label;
+  }
+
+  .notification .disabled label {
+    color: @disabledColor;
+  }
+
+  .notification .sms span {
+    display: inline-block;
+    margin: 0 0 0 @baseLine;
+    font-style: italic;
+  }
+}
+
+
+/* Step 3 */
+
+
+/* Manager/Admin SignUp */
+#complete #manager_signup fieldset {
+  div:first-child {
+    padding: 0 10px 0 0;
+  }
+
+  div:last-of-type {
+    padding: 0 0 0 10px;
+  }
+}
+
+
+/* Summary */
+#complete .summary {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: @baseLine;
+  color: #000;
+  
+  h3 {
+    .heading-label;
+  }
+}

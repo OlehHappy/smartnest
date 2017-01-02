@@ -1,0 +1,309 @@
+.state-public-signup {
+  .case {
+    min-height: ~"calc(100% - 50px)";
+  }
+  .main-content {
+    background: url(../img/public/signup_bg.jpg) center center no-repeat;
+    background-size: cover;
+    min-height: 100%;
+    height: auto;
+  }
+  .signup-content {
+    .clearfix;
+    max-width: 930px;
+    margin: 0 auto;
+    padding: 10px 0;
+    @media (max-width: 800px) {
+      padding: 20px 0;
+    }
+    @media (max-width: 480px) {
+      padding: 10px 0;
+    }
+  }
+  .info {
+    padding: 0 80px;
+    color: #ffffff;
+    text-align: center;
+    margin: 0 auto;
+    h1 {
+      font-size: 2.5em;
+      color: #ffffff;
+      font-weight: 300;
+      @media (max-width: 800px) {
+        font-size: 2em;
+      }
+    }
+    .text {
+      font-size: 1em;
+      span {
+        font-weight: bold;
+      }
+      @media (max-width: 800px) {
+        margin: 20px 0;
+      }
+      @media (max-width: 480px) {
+        margin: 0;
+      }
+    }
+    @media (max-width: 800px) {
+      padding: 20px;
+    }
+  }
+  .progress-wrap {
+    text-align: center;
+
+    @media (max-width: 600px) {
+      padding: 0;
+    }
+  }
+  .progress-line {
+    color: #ffffff;
+    text-transform: uppercase;
+    margin: 20px 0;
+    display: inline-block;
+
+    .step {
+      padding: 2px 15px;
+      border: 2px solid #fff;
+      border-radius: 15px;
+      display: inline-block;
+      opacity: 0.5;
+      float: left;
+      width: 150px;
+      @media (max-width: 480px) {
+       float: none;
+       display: block;
+       margin: 10px 0;
+      }
+    }
+    .active {
+      opacity: 1;
+    }
+    .between {
+      border-top: 1px solid #fff;
+      width: 150px;
+      margin: 15px 0;
+      float: left;
+      opacity: 0.5;
+      @media (max-width: 950px) {
+        width: 100px;
+      }
+      @media (max-width: 700px) {
+        width: 50px;
+      }
+      @media (max-width: 600px) {
+        width: 20px;
+      }
+      @media (max-width: 520px) {
+        display: none;
+      }
+    }
+    @media (max-width: 480px) {
+      margin: 0 0 20px 0;
+    }
+  }
+  .form {
+    padding: 0 80px;
+    font-size: 1.5em;
+    background: url(../img/public/form_bg.png) repeat;
+    border-radius: 15px;
+    
+    form {
+      padding: 10px;
+    }
+    label {
+      margin: 0 10px;
+    }
+    .date-label {
+      top: -10px;
+      font-size: 12px;
+    }
+    h2, legend {
+      margin: 10px 0;
+    }
+    h2 {
+      text-align: center;
+      margin: 20px 0;
+    }
+    legend {
+      font-weight: 300;
+    }
+    .error-message {
+      position: absolute;
+    }
+    div.input, div.select {
+      margin-bottom: 10px;
+      padding: 15px 5px 0;
+    }
+    .individual {
+      margin: 10px 0;
+      text-align: left;
+      color: #009ad0;
+      font-size: 0.8em;
+      text-decoration: underline;
+    }
+    input, select {
+      font-size: 1em;
+      @media (max-width: 1000px) {
+        font-size: 0.75em;
+      }
+    }
+    .switch {
+      padding: 0;
+    }
+    .switcher-wrapper {
+      width: auto;
+      .switcher-on, .switcher-off {
+        width: auto;
+        font-size: 16px;
+        margin: 0 10px;
+      }
+    }
+    .date-picker {
+      position: initial;
+      .input-group-btn {
+        vertical-align: top;
+        button {
+          height: 42px;
+          i {
+            font-size: 14px;
+          }
+          @media (max-width: 480px) {
+            height: 36px;
+            margin: 0;
+          }
+
+        }
+      }
+      input.date-picker {
+        border-radius: 0 5px 5px 0;
+        margin: 0;
+      }
+    }
+    .buttons {
+      .btn {
+        margin: 5px 0;
+      }
+    }
+    .btn {
+       @media (max-width: 850px) {
+         font-size: 1.1em;
+       }
+       @media (max-width: 800px) {
+         font-size: 1em;
+       }
+     }
+    @media (max-width: 1440px) {
+      padding: 0 20px;
+    }
+    @media (max-width: 1000px) {
+      padding: 0;
+    }
+    @media (max-width: 480px) {
+      font-size: 1em;
+    }
+  }
+  .rent-form {
+    padding: 0 50px;
+    form {
+      > div {
+        @media (max-width: 750px) and (min-width: 701px) {
+          padding: 0;
+        }
+      }
+    }
+    .landlord-legend {
+      padding-left: 30px;
+    }
+    .btn {
+      &.normal {
+        background-color: #fff;
+        color: #969696;
+        font-weight: 400;
+      }
+    }
+    @media (max-width: 930px) {
+      padding: 0;
+    }
+  }
+  .done {
+    text-align: center;
+    padding: 50px;
+    h2 {
+      font-weight: 300;
+    }
+    p {
+      padding: 30px;
+      font-weight: 300;
+    }
+    .fa-stack {
+      position: relative;
+      display: inline-block;
+      width: 4em;
+      height: 4em;
+      line-height: 4em;
+      vertical-align: middle;
+
+      i:first-child {
+        color: #c2c2c2;
+        font-size: 4em;
+      }
+      i:last-child {
+        color: #fff;
+        font-size: 2em;
+      }
+    }
+    @media (max-width: 1000px) {
+      padding: 10px 20px;
+    }
+    @media (max-width: 480px) {
+      padding: 10px;
+    }
+  }
+  .login-underbox {
+    width: 100%;
+    margin: 10px auto;
+    text-align: center;
+    color: #fff;
+
+    a {
+      color:#fff;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      .transition(border .2s linear);
+
+      &:hover {
+        text-decoration: none;
+        border-bottom: 1px solid #fff;
+      }
+    }
+  }
+  div.flash-messages {
+    margin: 0;
+  }
+  .ng-invalid.mui-dirty:not(:focus), .ng-invalid-required.mui-dirty:not(:focus), .has-error:not(:focus) {
+    border-color: #F44336;
+    border-width: 2px;
+  }
+  .filled {
+    top: -10px;
+    font-size: 12px;
+  }
+  .zip::-webkit-inner-spin-button,
+  .zip::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  .mui-form-control:not(:focus).ng-invalid-number ~ .mui-form-floating-label {
+    font-size: 12px;
+    line-height: 15px;
+    top: 0px;
+    text-overflow: ellipsis;
+    color: #F44336;
+  }
+  .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8 {
+    @media (max-width: 700px) {
+      width: 100%;
+    }
+  }
+}

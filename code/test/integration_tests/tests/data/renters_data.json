@@ -1,0 +1,39 @@
+[
+    {
+        "property": "The Landing",
+        "balance_update":"The_Landing_RR_01102014.csv",
+        "renter": [
+            {
+                "name":"Hillary Hedrick",
+                "email": "hillary.brooke93@gmail.com",
+                "password": "1",
+                "prepayment": "22",
+                "prepayment2":"1",
+                "balance":""
+            },
+            {
+                "name":"Neichelle Lewis",
+                "email": "lewisn11@students.ecu.edu",
+                "password": "1",
+                "prepayment": "17",
+                "prepayment2":"1",
+                "balance":""
+            }
+        ]
+    },
+    {
+        "property": "Colonie Apartments",
+        "balance_update":"CA_114_Rent+Roll+Detail.csv",
+        "renter": [
+            {
+                "name":"David Johnson",
+                "email": "bburke@daemen.edu",
+                "password":"1",
+                "prepayment":"23",
+                "prepayment2":"1",
+                "balance":""
+            }
+
+        ]
+    }
+]

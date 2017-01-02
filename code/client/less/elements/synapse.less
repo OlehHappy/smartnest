@@ -1,0 +1,26 @@
+.synapse {
+  .linked_nodes {
+    li {
+      padding: 5px;
+      &:hover {
+        //background-color: @baseColor;
+        background-color: rgba(78, 189, 229, 0.2);
+      }
+      border: 1px dashed #999;
+    }
+    .account_number {
+      color: #999;
+      font-size: 12px;
+    }
+  }
+
+  .kyc_iframe {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 100000;
+    visibility: visible;
+  }
+}

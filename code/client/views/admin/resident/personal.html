@@ -1,0 +1,19 @@
+<div>
+  <div class="info col-xs-12">
+    <ul class="col-xs-12">
+      <li class="col-xs-4">
+        <label>Email</label>
+        <div>{{ resident.email || '-' }}</div>
+      </li>
+      <li class="col-xs-4">
+        <label>Phone</label>
+        <div>{{ resident.phone || '-' }}</div>
+      </li>
+       <li class="col-xs-4">
+        <label>Birthday</label>
+        <div>{{ resident.birth_date | date: 'MM/dd/yyyy' || '-' }}</div>
+      </li>
+    </ul>
+  </div>
+
+</div>

@@ -1,0 +1,85 @@
+// Tables
+.tables() {
+  border: 0;
+  border-radius: 3px 3px 0 0;
+  margin: @baseLine 0;
+  width: 100%;
+  color: #555;
+
+  td, th {
+    padding: @baseLine / 3;
+
+    @media screen and (max-width: 960px) {
+      padding: 6px 4px;
+    }
+    @media screen and (max-width: 480px) {
+      padding: 4px 2px;
+      font-size: 11px;
+    }
+    &.no-mobile{
+      @media screen and (max-width: 700px) {
+        display: none;
+      }
+    }
+  }
+
+  thead th,
+  thead td {
+    background: #f5f5f5;
+  }
+
+  thead th:first-child {
+    border-radius: 3px 0 0 0;
+  }
+
+  thead th:last-child {
+    border-radius: 0 3px 0 0;
+  }
+
+  tbody th,
+  tbody td {
+    border-bottom: 1px solid #efefef;
+    vertical-align: middle;
+    @media screen and (max-width: 480px) {
+      font-size: 11px;
+    }
+  }
+
+
+  tbody td[colspan] {
+    text-align: center;
+  }
+
+  button {
+    height: @baseLine * 2;
+    line-height: @baseLine * 2;
+  }
+
+  tr[ng-click]:hover > td,
+  tr[ng-click]:hover > th,
+  tr[data-ng-click]:hover > td,
+  tr[data-ng-click]:hover > th {
+    background: #fbfbfb;
+    cursor: pointer;
+  }
+
+  // row is currently selected
+  tbody tr.active > td {
+    color: #fff;
+    background: @baseColor !important;
+  }
+
+  // Maintenance tickets and Leasing Messages
+  tbody .unread {
+    font-weight: bold;
+  }
+  tbody .read {
+    color: #777;
+  }
+}
+
+
+//TODO: we dont want all tables to have same responsive behavior
+table {
+  .tables;
+}

@@ -1,0 +1,63 @@
+<div class="form form-mui col-xs-12">
+  <form name="billingForm" ng-submit="billingForm.$valid && updateSettings(user, user_contract, individual)" autocomplete="off" novalidate>
+    <p class="col-xs-12">Who do you pay your rent to?</p>
+    <div class="input individual mui-form-group col-xs-12 col-md-7" ng-if="!individual">
+      <input id="company" name="company" class="input-mui mui-form-control" type="text" ng-model="user_contract.landlord.company" error-message required />
+      <label for="company" class="mui-form-floating-label">Company Name<span class="warning"></span></label>
+    </div>
+    <div class="col-xs-12 col-md-7" ng-if="individual">
+      <div class="row">
+        <div class="input individual mui-form-group col-xs-12 col-md-6">
+          <input id="first_name" name="first_name" class="input-mui mui-form-control" type="text" ng-model="user_contract.landlord.first_name" error-message required />
+          <label for="first_name" class="mui-form-floating-label">Landlord's First Name<span class="warning"></span></label>
+        </div>
+        <div class="input individual mui-form-group col-xs-12 col-md-6">
+          <input id="last_name" name="last_name" class="input-mui mui-form-control" type="text" ng-model="user_contract.landlord.last_name" error-message required />
+          <label for="last_name" class="mui-form-floating-label">Landlord's Last Name<span class="warning"></span></label>
+        </div>
+      </div>
+    </div>
+    <div class="input email mui-form-group col-xs-12 col-md-5">
+      <input id="email" name="email" class="input-mui mui-form-control" type="email" ng-model="user_contract.landlord.email" error-message />
+      <label for="email" class="mui-form-floating-label">Landlord's Email<span class="warning"></span></label>
+    </div>
+    <div class="switch col-xs-12">
+      <div class="switcher-wrapper">
+        <span class="switcher-off" ng-class="{'switcher-active': !individual}">Pay to a company</span>
+        <div class="switcher">
+          <input type="checkbox" name="switcher" class="switcher-checkbox" id="switch-payments" ng-model="individual">
+          <label class="switcher-label active" for="switch-payments">
+            <span class="switcher-inner"></span>
+            <span class="switcher-switch"></span>
+          </label>
+        </div>
+        <span class="switcher-on" ng-class="{'switcher-active': individual}">Pay to an individual</span>
+      </div>
+    </div>
+    <p class="col-xs-12">Where do you want the money sent?</p>
+    <div class="input mui-form-group col-xs-12 col-md-6">
+      <input id="address2" name="address2" class="input-mui mui-form-control" type="text" ng-model="user_contract.landlord.address.street" error-message required />
+      <label for="address2" class="mui-form-floating-label">Address<span class="warning"></span></label>
+    </div>
+    <div class="input mui-form-group col-xs-5 col-md-2">
+      <input id="unit2" name="unit2" class="input-mui mui-form-control" type="text" ng-model="user_contract.landlord.address.unit" />
+      <label for="unit2" class="mui-form-floating-label">Unit<span class="warning"></span></label>
+    </div>
+    <div class="input mui-form-group col-xs-7 col-md-4">
+      <input id="city2" name="city2" class="input-mui mui-form-control" type="text" ng-model="user_contract.landlord.address.city" error-message required />
+      <label for="city2" class="mui-form-floating-label">City<span class="warning"></span></label>
+    </div>
+    <div class="input mui-form-group mui-select col-xs-6 col-md-4">
+      <input select-state="USA" id="state2" name="state2" class="input-mui mui-form-control" ng-model="user_contract.landlord.address.state" error-message required />
+      <label for="state2" class="mui-form-floating-label">State<span class="warning"></span></label>
+    </div>
+    <div class="input mui-form-group col-xs-6 col-md-2">
+      <input id="zip2" name="zip2" class="input-mui mui-form-control" type="text" ng-model="user_contract.landlord.address.postal" error-message required />
+      <label for="zip2" class="mui-form-floating-label">Zip Code<span class="warning"></span></label>
+    </div>
+    <div class="buttons col-xs-12">
+      <flash-messages type="page"></flash-messages>
+      <button type="submit" class="btn btn-info">Apply Changes</button>
+    </div>
+  </form>
+</div>

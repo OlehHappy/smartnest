@@ -1,0 +1,48 @@
+<header>
+  <button class="close" ng-click="dismissModal()">&times;</button>
+  <h2>Edit '{{ transaction.resident.first_name }} {{ transaction.resident.last_name }}' Transaction</h2>
+</header>
+
+<dialog-body>
+  <form name="editForm" ng-submit="editForm.$valid && update(transaction, data)" novalidate>
+
+    <fieldset class="row">
+      <div class="col-xs-6">
+        <label for="status">Status</label>
+        <select id="status" name="status" ng-model="data.check.status" class="select" ng-options="status as label for (status, label) in statuses"></select>
+      </div>
+      <div class="col-xs-6">
+        <label for="expected_delivery_date">Expected Delivery Date</label>
+        <input type="text" date-picker date-utc name="expected_delivery_date" class="input" id="expected_delivery_date" ng-model="data.check.expected_delivery_date" error-message />
+      </div>
+    </fieldset>
+
+    <fieldset class="row">
+      <div class="col-xs-6">
+        <label for="carrier"> Carrier</label>
+        <input type="text" name="carrier" id="carrier" class="input" ng-model="data.check.tracking.carrier" />
+      </div>
+      <div class="col-xs-6">
+        <label for="tracking_number">Tracking Number</label>
+        <input type="text" name="tracking_number" id="tracking_number" class="input" ng-model="data.check.tracking.tracking_number" />
+      </div>
+    </fieldset>
+
+    <fieldset class="row" ng-show="!data.check.status">
+      <div class="col-xs-6">
+        <label ng-class="{checked: data.sendCheck}">
+          <input type="checkbox" ng-model="data.sendCheck" /> Automatically send a Check
+        </label>
+      </div>
+    </fieldset>
+
+    <flash-messages type="dialog"></flash-messages>
+
+    <div class="buttons">
+      <button type="button" class="normal" ng-click="dismissModal()">Cancel</button>
+      <button type="submit" class="good" disable-if-progress>Save</button>
+    </div>
+
+  </form>
+
+</dialog-body>

@@ -1,0 +1,49 @@
+<a ui-sref="admin.residents.list.detail({userId: resident._id})" class="back-button">
+  <i class="fa fa-arrow-left fa-fw"></i> Back
+</a>
+
+<h1>Edit Resident</h1>
+
+
+<form autocomplete="off" name="updateForm" ng-submit="updateForm.$valid && updateResident(resident)" novalidate>
+
+  <div class="big-label-inline-wrapper">
+    <!-- Name -->
+    <div class="big-label-inline">
+      <label for="first-name">First Name<strong>*</strong></label>
+      <input class="input-inline-big" type="text" id="first-name" name="first-name" ng-model="resident.first_name" error-message required />
+    </div>
+    <div class="big-label-inline">
+      <label for="last-name">Last Name<strong>*</strong></label>
+      <input class="input-inline-big" type="text" id="last-name" name="last-name" ng-model="resident.last_name" error-message required />
+    </div>
+  </div>
+
+
+  <ul class="edit-list">
+    <!-- Email, Phone -->
+    <li><i class="fa fa-envelope-o fa-fw"></i>
+      <input type="email" id="email" name="email" ng-model="resident.email" placeholder="Email" autocomplete="off" error-message unique-email="'{{ resident.email }}'" />
+    </li>
+    <li><i class="fa fa-phone fa-fw"></i>
+      <input type="text" id="phone" name="phone" ng-model="resident.phone" placeholder="Phone" error-message phone />
+    </li>
+
+    <!-- Password -->
+    <li class="edit-half">
+      <label for="password">New Password</label>
+      <input type="password" id="password" name="password" ng-model="resident.password" autocomplete="off" />
+    </li>
+    <li class="edit-half">
+      <label for="password-confirm">Confirm Password</label>
+      <input type="password" id="password-confirm" name="password-confirm" ng-model="password_check" autocomplete="off" error-message="{equals: 'Passwords do not match'}" equals="{{ resident.password }}" />
+    </li>
+  </ul>
+
+  <flash-messages type="page"></flash-messages>
+
+  <div class="buttons">
+    <button class="normal" type="button" ui-sref="admin.residents.list.detail({userId: resident._id})">Cancel</button>
+    <button class="button" type="submit" disable-if-progress>Update</button>
+  </div>
+</form>

@@ -1,0 +1,102 @@
+// Forms
+.form-mui {
+  .input {
+    margin-bottom: 20px;
+  }
+  label {
+    margin: 0 10px;
+    width: auto;
+  }
+  .input-mui, .select-mui {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 42px;
+    padding: 0 10px;
+    background: #fff;
+    font-size: 1.25em;
+    &:focus {
+      height: 42px;
+    }
+  }
+  .mui-select:focus {
+    > select {
+      height: 42px;
+      @media (max-width: 480px) {
+        height: 36px;
+      }
+    }
+  }
+  .mui-form-control:focus {
+    margin: 0;
+  }
+  .mui-form-control:invalid:not(:focus):not(:required),
+  .mui-form-control:invalid:not(:focus):required.mui-not-empty,
+  .mui-form-control:invalid:not(:focus):required.mui-empty.mui-dirty,
+  .mui-form-control:invalid:not(:focus):required[value]:not([value=""]):not(.mui-empty):not(.mui-not-empty),
+  .mui-form-control:invalid:not(:focus):required:not(:empty):not(.mui-empty):not(.mui-not-empty) {
+    height: 42px;
+    margin: 0;
+    
+    @media (max-width: 480px) {
+      height: 36px;
+    }
+  }
+  .mui-form-control:disabled, .mui-form-control:read-only {
+    background-color: #fff;
+  }
+  .ng-invalid.mui-dirty:not(:focus), .ng-invalid-required.mui-dirty:not(:focus), .has-error:not(:focus) {
+    border-color: #F44336;
+    border-width: 2px;
+  }
+  .buttons {
+    text-align: center;
+
+    .btn {
+      font-size: 1em;
+      margin: 30px 0;
+      background-color: #009ad0;
+      border-radius: 5px;
+      line-height: 32px;
+      padding: 5px 80px;
+      @media (max-width: 480px) {
+        margin: 20px 0;
+      }
+    }
+  }
+  .input-mui, .btn {
+    &:active, &:focus {
+      outline: none;
+      border-color: #009ad0;
+      box-shadow: 0 0 1px #009ad0;
+    }
+  }
+  p.error-message {
+    top: 60px;
+  }
+  @media (max-width: 480px) {
+    .input-mui, .select-mui {
+      height: 36px;
+      font-size: 1em;
+
+      &:focus {
+        height: 36px;
+      }
+    }
+    .mui-form-group {
+      label.mui-form-floating-label {
+        //top: 24px;
+      }
+      label.mui-form-floating-label-active {
+        top: 0px;
+      }
+    }
+    .btn {
+      margin-top: 10px;
+      line-height: 36px;
+    }
+    p.error-message {
+      top: 50px;
+    }
+  }
+
+}

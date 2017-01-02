@@ -1,0 +1,44 @@
+<!-- Tabs navigation -->
+<nav role="tablist" class="level-2">
+  <ul>
+    <li>
+      <a ng-click="$history.back('admin.residents.detail', 'resident')">
+        <i class="fa fa-arrow-left fa-fw"></i>Back
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- Content -->
+<div class="col-xs-12 fullprofile">
+  <span>{{resident.first_name}} {{resident.last_name}}</span>
+
+  <span ng-show="$state.includes('**.admin.resident.personal.**')">
+    <a ui-sref="admin.resident.personal.edit">
+      <i class="fa fa-pencil fa-fw" popover="Edit" popover-trigger="mouseenter"></i>
+    </a>
+    <a ng-click="showDeleteModal(resident)">
+      <i class="fa fa-trash-o fa-fw" popover="Delete" popover-trigger="mouseenter"></i>
+    </a>
+    <a ng-click="forceUserLogin(resident)" ng-show="global.user.role === 'ADMIN'">
+      <i class="fa fa-reply fa-fw" popover="Force Login" popover-trigger="mouseenter"></i>
+    </a>
+  </span>
+</div>
+
+<!-- Tabs navigation -->
+<nav role="tablist" class="level-2">
+  <ul>
+    <li ng-class="{'active': $state.includes('**.resident.personal.**')}">
+      <a ui-sref="admin.resident.personal.detail">Personal</a>
+    </li>
+    <li ng-class="{'active': $state.includes('**.resident.contracts.**')}">
+      <a ui-sref="admin.resident.contracts.list">Contract</a>
+    </li>
+    <li ng-class="{'active': $state.includes('**.resident.ledger.**')}">
+      <a ui-sref="admin.resident.ledger">Ledger</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="detail" ui-view></div>

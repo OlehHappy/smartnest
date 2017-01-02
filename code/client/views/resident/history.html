@@ -1,0 +1,113 @@
+<!-- Summary -->
+<div class="detail col-xs-12">
+  <div class="header">History Payments</div>
+  <div class="data col-xs-4 col-md-4">
+    <div class="number col-xs-12">${{ transactions[0].amount | number:2 }}</div>
+    <span class="col-xs-12">Last Payment</span>
+  </div>
+  <div class="data col-xs-4 col-md-4">
+    <div class="number col-xs-12">{{ transactions.length }}</div>
+    <span class="col-xs-12">Total Payments</span>
+  </div>
+  <div class="data col-xs-4 col-md-4">
+    <div class="number col-xs-12">${{ averageRent | number:2 }}</div>
+    <span class="col-xs-12">Average Rent</span>
+  </div>
+</div>
+
+<!-- Transaction History -->
+<div class="history col-xs-12">
+  <div class="table-wrap col-xs-12">
+    <table class="history-table col-xs-12">
+      <thead>
+        <tr>
+          <th scope="col" class="col-xs-4">Date</th>
+          <th scope="col" class="col-xs-4">Amount</th>
+          <th scope="col" class="col-xs-4">Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr ng-repeat-start="transaction in transactions" ng-hide="showDetailId == transaction._id">
+          <td title="Date" class="col-xs-4">
+            {{ transaction.createdAt | date:'MMM d, yyyy' }}
+          </td>
+          <td title="Amount" class="col-xs-4">
+            ${{ transaction.amount | number:2 }}
+          </td>
+          <td title="Status" class="col-xs-4">
+            <button type="button" class="btn transaction-step-{{ transaction.step }}" ng-class="{'btn-warning': true}" ng-click="showDetail(transaction._id)">
+              <div ng-show="transaction.step == 0">Payment Pending</div>
+              <div ng-show="transaction.step == 1">Payment Completed</div>
+              <div ng-show="transaction.step == 2">Check Created</div>
+              <div ng-show="transaction.step == 3">Check Delivered</div>
+              <div ng-show="transaction.step == 4">Check Delivered</div>
+            </button>
+          </td>
+        </tr>
+
+        <tr class="table-detail table-detail-{{ transaction.step }}" ng-show="showDetailId === transaction._id" ng-repeat-end>
+          <td colspan="3">
+            <div class="col-xs-4">{{ transaction.createdAt | date:'MMM d, yyyy' }}</div>
+            <div class="col-xs-4">${{ transaction.amount | number:2 }}</div>
+            <div class="payment-detail-header col-xs-4" ng-click="showDetail()">
+              <div ng-show="transaction.step == 0">Payment Pending</div>
+              <div ng-show="transaction.step == 1">Payment Completed</div>
+              <div ng-show="transaction.step == 2">Check Created</div>
+              <div ng-show="transaction.step == 3">Check Delivered</div>
+              <div ng-show="transaction.step == 4">Check Delivered</div>
+            </div>
+            <div class="payment-detail first col-xs-4" ng-class="{done: transaction.step >= 0}">
+              <div class="fa-stack">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-inverse fa-stack-1x" ng-hide="transaction.step >= 0">1</i>
+                <i class="fa fa-check fa-stack-1x" ng-show="transaction.step >= 0"></i>
+              </div>
+              <div class="date">{{ getLatestLog(transaction.payment.logs).date | date:'MMM d, yyyy' }}</div>
+              <div ng-show="transaction.payment.status === 'PENDING'">Payment<br />Pending</div>
+              <div ng-show="transaction.payment.status === 'COMPLETED'">Payment<br />Recieved</div>
+            </div>
+            <div class="payment-detail col-xs-2" ng-class="{done: transaction.step >= 1}">
+              <div class="fa-stack">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-inverse fa-stack-1x" ng-hide="transaction.step >= 1">2</i>
+                <i class="fa fa-check fa-stack-1x" ng-show="transaction.step >= 1"></i>
+              </div>
+              <div class="date" ng-show="transaction.step >= 1">{{ getLog(transaction.check.logs, 'CREATED').date | date:'MMM d, yyyy' }}</div>
+              <div class="date" ng-hide="transaction.step >= 1"> - </div>
+              <div>Check<br />Created<br />
+                <a target="_blank" ng-href="{{transaction.check.thumbnail}}" ng-show="transaction.step >= 1 && transaction.check.thumbnail" class="thumb">Thumbnail</a>
+              </div>
+            </div>
+            <div class="payment-detail col-xs-2" ng-class="{done: transaction.step >= 2}">
+              <div class="fa-stack">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-inverse fa-stack-1x" ng-hide="transaction.step >= 2">3</i>
+                <i class="fa fa-check fa-stack-1x" ng-show="transaction.step >= 2"></i>
+              </div>
+              <div class="date" ng-show="transaction.step >= 1 && transaction.check.expected_delivery_date">{{ transaction.check.expected_delivery_date | date:'MMM d, yyyy':'UTC' }}</div>
+              <div class="date" ng-hide="transaction.step >= 1 && transaction.check.expected_delivery_date"> - </div>
+              <div>Expected<br />Delivery</div>
+            </div>
+            <div class="payment-detail col-xs-4" ng-class="{done: transaction.step >= 3}">
+              <div class="fa-stack">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-inverse fa-stack-1x" ng-hide="transaction.step >= 3">4</i>
+                <i class="fa fa-check fa-stack-1x" ng-show="transaction.step >= 3"></i>
+              </div>
+              <div class="date" ng-show="transaction.step >= 3">{{ getLog(transaction.check.logs, 'COMPLETED').date | date:'MMM d, yyyy' }}</div>
+              <div class="date" ng-hide="transaction.step >= 3"> - </div>
+              <div>Check<br />Delivered</div>
+            </div>
+          </td>
+        </tr>
+
+        <!-- No Payments -->
+        <tr ng-hide="transactions.length">
+          <td colspan="3">No Payments History.</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,123 @@
+/* TABS (mixin) */
+.tabs {
+
+  border-bottom: 1px solid #ddd;
+  margin: 0 0 @baseLine 0;
+
+  ul {
+    margin: 0 30px;
+
+    @media (max-width: 480px) {
+      margin: 0 10px;
+    }
+  }
+
+  li {
+    position: relative;
+    top: 1px;
+
+    border: 1px solid #ddd;
+    border-bottom: 1px solid transparent;
+    border-radius: 3px 3px 0 0;
+    display: inline-block;
+    margin: 0 5px;
+  }
+
+  li a {
+    border-radius: 3px 3px 0 0;
+    display: block;
+    padding: 0 @baseLine;
+
+    background: #f8f8f8;
+    color: #888;
+
+    font-weight: bold;
+    line-height: 30px;
+  }
+
+  li.active {
+    border-bottom: 1px solid #fff;
+  }
+
+  li.active a,
+  a:hover,
+  a:focus,
+  a:active {
+    outline: none;
+    background: #fff;
+    color: #393939;
+    text-decoration: none;
+  }
+}
+
+// Second level
+.level-2 {
+  li {
+    position: static;
+    border: 0;
+    margin: 0 12px 0 5px;
+
+    min-width: 50px;
+    text-align: center;
+
+    a {
+      padding: 0;
+      padding-top: 5px;
+      background: #fff;
+      font-weight: normal;
+      border-bottom: 3px solid #fff;
+    }
+
+    &.active {
+      .fa {
+        color: @baseColor;
+      }
+      a {
+        color: #000;
+        font-weight: bold;
+        border-bottom: 3px solid @baseColor;
+      }
+    }
+
+    // import buttons
+    &.actions {
+      @media screen and (max-width: 720px) {
+        display: none;
+      }
+
+      a {
+        border: 0;
+      }
+      float: right;
+    }
+
+    &:hover {
+      .fa {
+        color: @baseColor;
+      }
+    }
+  }
+}
+
+
+
+
+nav[role=tablist] {
+  .tabs;
+  @media screen and (max-width: 720px) {
+    font-size: 13px;
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 12px;
+  }
+}
+
+nav[role=tablist].level-2 {
+  .level-2;
+  @media screen and (max-width: 720px) {
+    font-size: 13px;
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 12px;
+  }
+}

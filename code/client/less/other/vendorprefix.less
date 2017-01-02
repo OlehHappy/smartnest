@@ -1,0 +1,73 @@
+/* MIXIN FOR CSS3 PROPERTIES WITH VENDOR PREFIXIS */
+
+.background-clip(@arg) {
+  -webkit-background-clip: @arg;
+     -moz-background-clip: @arg;
+          background-clip: @arg;
+}
+
+.box-shadow(@arg) {
+  -webkit-box-shadow: @arg;
+     -moz-box-shadow: @arg;
+          box-shadow: @arg;
+}
+
+.box-sizing(@arg) {
+  -webkit-box-sizing: @arg;
+     -moz-box-sizing: @arg;
+          box-sizing: @arg;
+}
+
+.animation (@arg) {
+  -webkit-animation: @arg;
+     -moz-animation: @arg;
+      -ms-animation: @arg;
+}
+
+.transition(@arg) {
+  -webkit-transition: @arg;
+     -moz-transition: @arg;
+          transition: @arg;
+}
+
+.translate(@x, @y:0) {
+  -webkit-transform: translate(@x, @y);
+  -moz-transform:    translate(@x, @y);
+  -ms-transform:     translate(@x, @y);
+  -o-transform:      translate(@x, @y);
+  transform:         translate(@x, @y);
+}
+
+.rotate(@deg) {
+  -webkit-transform: rotate(@deg);
+  -moz-transform:    rotate(@deg);
+  -ms-transform:     rotate(@deg);
+  -o-transform:      rotate(@deg);
+  transform:         rotate(@deg);
+}
+
+.user-select(@arg) {
+  -webkit-user-select: @arg;
+   -khtml-user-select: @arg;
+     -moz-user-select: @arg;
+      -ms-user-select: @arg;
+       -o-user-select: @arg;
+          user-select: @arg;
+}
+
+.border-radius(@arg) {
+  -webkit-border-radius: @arg;
+     -moz-border-radius: @arg;
+          border-radius: @arg;
+}
+
+.gradient (@startColor: rgba(0,0,0,0.75), @endColor: rgba(0,0,0,0.25)) {
+  background-color: @startColor;
+  background: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+  background: -webkit-linear-gradient(top, @startColor, @endColor);
+  background: -moz-linear-gradient(top, @startColor, @endColor);
+  background: -ms-linear-gradient(top, @startColor, @endColor);
+  -ms-filter: e("gradient(start=@ieStartColor,end=@ieEndColor)");
+  background: -o-linear-gradient(top, @startColor, @endColor);
+  background: -linear-gradient(top, @startColor, @endColor);
+}

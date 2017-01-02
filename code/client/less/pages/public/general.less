@@ -1,0 +1,40 @@
+.state-public {
+  main {
+    header {
+      position: absolute;
+      max-width: 930px;
+      left: 0;
+      right: 0;
+      .smartnest {
+        left: 0;
+        @media (max-width: 950px) {
+          left: 20px;
+        }
+      }
+      .menu {
+        right: 0;
+        @media (max-width: 950px) {
+          right: 20px;
+        }
+      }
+    }
+  }
+  .main-content {
+    .header {
+      height: 60px;
+      width: 100%;
+      background-color: @baseColor;
+    }
+    @media (max-width: 480px){
+      padding: 0;
+    }
+  }
+  .navigation-column {
+    display: none;
+  }
+
+  main {
+    padding: 0;
+    font-size: 0.9em;
+  }
+}

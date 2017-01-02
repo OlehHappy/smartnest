@@ -1,0 +1,4 @@
+<div>
+  <label for="unit-number">Unit<span ng-show="buildingFiled">, Building</span> Number<strong ng-show="isRequired()">*</strong></label>
+  <input type="text" class="input" id="unit-number" ng-model="unit" placeholder="Unit Number" typeahead="u as getUnitName(u) for u in units | unitsFilter:$viewValue | limitTo: 6" />
+</div>

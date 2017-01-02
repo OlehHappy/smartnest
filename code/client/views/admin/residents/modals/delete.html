@@ -1,0 +1,11 @@
+<header>
+  <button class="close" ng-click="dismissModal()">&times;</button>
+  <h2>Do you really want to archive resident '{{ resident.first_name }} {{ resident.last_name }}'?</h2>
+</header>
+
+<dialog-body>
+  <div class="buttons">
+    <button class="normal" ng-click="dismissModal()">Cancel</button>
+    <button class="bad" ng-click="ok(resident)">Archive</button>
+  </div>
+</dialog-body>

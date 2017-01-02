@@ -1,0 +1,19 @@
+<div class="navigation-column" ng-class="[isNavOpened, isNavShown]" ng-swipe-right="toggleNav(true)" ng-swipe-left="toggleNav(false)">
+  <!-- SmartNest logo -->
+  <a ui-sref="admin.dashboard" id="logo">
+    <div></div>
+  </a>
+
+  <ul>
+    <li>
+      <a ui-sref="admin.residents.list" ng-class="{'active': $state.includes('**.residents.**')}" ng-click="showNav()"><i class="fa fa-user fa-fw"></i> <span>Residents</span></a>
+    </li>
+    <li>
+      <a ui-sref="admin.payments.list.all" ng-class="{'active': $state.includes('**.payments.**')}" ng-click="showNav()"><i class="fa fa-usd fa-fw"></i> <span>Payments</span></a>
+    </li>
+  </ul>
+
+  <a href="" class="nav-toggle" ng-class="[isNavShown]" ng-click="toggleNav()"></a>
+</div>
+
+<div class="content" ui-view></div>

@@ -1,0 +1,104 @@
+<div class="form rent-form form-mui col-xs-12">
+  <form name="registerForm" ng-submit="registerForm.$valid && signup(account, rent, individual)" novalidate>
+    <div class="live col-xs-6">
+      <legend class="col-xs-12">Where do you live?</legend>
+      <div class="input mui-form-group col-xs-8">
+        <input id="street" name="street" class="input-mui mui-form-control" type="text" ng-model="rent.address.street" error-message required/>
+        <label for="street" class="mui-form-floating-label">Address</label>
+      </div>
+      <div class="input mui-form-group col-xs-4">
+        <input id="unit" name="unit" class="input-mui mui-form-control" type="text" ng-model="rent.address.unit" />
+        <label for="unit" class="mui-form-floating-label">Building Unit</label>
+      </div>
+      <div class="input mui-form-group col-xs-4">
+        <input id="city" name="city" class="input-mui mui-form-control" type="text" ng-model="rent.address.city" error-message required />
+        <label for="city" class="mui-form-floating-label">City</label>
+      </div>
+      <div class="select mui-form-group mui-select col-xs-4">
+        <label for="state" class="mui-form-floating-label" ng-class="{filled: rent.address.state}">State</label>
+        <input select-state="USA" class="input-mui mui-form-control" id="state" name="state" ng-model="rent.address.state" error-message required />
+      </div>
+      <div class="input mui-form-group col-xs-4">
+        <input id="postal" name="postal" class="input-mui zip mui-form-control" type="text" ng-model="rent.address.postal" error-message required />
+        <label for="postal" class="mui-form-floating-label">ZIP Code</label>
+      </div>
+    </div>
+    <div class="rent col-xs-6">
+      <legend class="col-xs-12">Rent Details</legend>
+      <div class="input mui-form-group col-xs-6">
+        <input class="input-mui mui-form-control" type="text" date-picker name="startDate" id="startDate" ng-model="rent.date_from" error-message required />
+        <label for="startDate" class="mui-form-floating-label date-label" ng-class="{filled: rent.date_from}">Lease Start Date</label>
+      </div>
+      <div class="input mui-form-group col-xs-6">
+        <input class="input-mui mui-form-control" type="text" date-picker name="endDate" id="endDate" ng-model="rent.date_to" error-message date-greater-than="{{ rent.date_from }}" required />
+        <label for="endDate" class="mui-form-floating-label date-label" ng-class="{filled: rent.date_to}">Lease End Date</label>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <legend class="landlord-legend col-xs-12">Who do you make your checks out to?</legend>
+    <div class="landlord col-xs-6">
+      <div class="input mui-form-group col-xs-12" ng-if="!individual">
+        <input id="company" name="company" class="input-mui mui-form-control" type="text" ng-model="rent.landlord.company" error-message required />
+        <label for="company" class="mui-form-floating-label">Company Name</label>
+      </div>
+      <div class="col-xs-12" ng-if="individual">
+        <div class="row">
+          <div class="input mui-form-group col-xs-6">
+            <input id="first_name" name="first_name" class="input-mui mui-form-control" type="text" ng-model="rent.landlord.first_name" error-message required />
+            <label for="first_name" class="mui-form-floating-label">Landlord's First Name</label>
+          </div>
+          <div class="input mui-form-group col-xs-6">
+            <input id="last_name" name="last_name" class="input-mui mui-form-control" type="text" ng-model="rent.landlord.last_name" error-message required />
+            <label for="last_name" class="mui-form-floating-label">Landlord's Last Name</label>
+          </div>
+        </div>
+      </div>
+      <div class="input mui-form-group col-xs-12">
+        <input id="landlord_email" name="landlord_email" class="input-mui mui-form-control" type="email" ng-model="rent.landlord.email" error-message />
+        <label for="landlord_email" class="mui-form-floating-label">Landlord's Email</label>
+      </div>
+      <div class="switch col-xs-12">
+        <div class="switcher-wrapper">
+          <span class="switcher-off" ng-class="{'switcher-active': !individual}">Pay to a company</span>
+          <div class="switcher">
+            <input type="checkbox" name="switcher" class="switcher-checkbox" id="switch-payments" ng-model="pay_per" ng-change="individual = !individual">
+            <label class="switcher-label active" for="switch-payments">
+              <span class="switcher-inner"></span>
+              <span class="switcher-switch"></span>
+            </label>
+          </div>
+          <span class="switcher-on" ng-class="{'switcher-active': individual}">Pay to an individual</span>
+        </div>
+      </div>
+    </div>
+    <div class="landlord-address col-xs-6">
+      <div class="input mui-form-group col-xs-8">
+        <input id="property_street" name="property_street" class="input-mui mui-form-control" type="text" ng-model="rent.landlord.address.street" error-message required />
+        <label for="property_street" class="mui-form-floating-label">Address</label>
+      </div>
+      <div class="input mui-form-group col-xs-4">
+        <input id="property_unit" name="property_unit" class="input-mui mui-form-control" type="text" ng-model="rent.landlord.address.unit" />
+        <label for="property_unit" class="mui-form-floating-label">Building Unit</label>
+      </div>
+      <div class="input mui-form-group col-xs-4">
+        <input id="property_city" name="property_city" class="input-mui mui-form-control" type="text" ng-model="rent.landlord.address.city" error-message required />
+        <label for="property_city" class="mui-form-floating-label">City</label>
+      </div>
+      <div class="select mui-form-group mui-select col-xs-4">
+        <label for="property_state" class="mui-form-floating-label" ng-class="{filled: rent.landlord.address.state}">State</label>
+        <input select-state="USA" id="property_state" name="property_state" class="input-mui mui-form-control" ng-model="rent.landlord.address.state" error-message required />
+      </div>
+      <div class="input mui-form-group col-xs-4">
+        <input id="property_postal" name="property_postal" class="input-mui zip mui-form-control" type="text" ng-model="rent.landlord.address.postal" error-message required />
+        <label for="property_postal" class="mui-form-floating-label">ZIP Code</label>
+      </div>
+    </div>
+    <div class="buttons col-xs-12">
+      <button type="button" class="btn normal" ng-click="back(account)">Go Back</button>
+      <button type="submit" class="btn btn-info" disable-if-progress>Continue</button>
+    </div>
+    <div class="col-xs-12">
+      <flash-messages type="page"></flash-messages>
+    </div>
+  </form>
+</div>

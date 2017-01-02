@@ -1,0 +1,79 @@
+<div class="index-content clearfix">
+  <div class="schedule-rent">
+    <h1>Pay your rent online, today.</h1>
+    <span>
+      You'll never have to worry about writing out checks or forgetting to pay on-time.
+      SmartNest pays your landlord directly so you can pay your rent from anywhere.
+    </span>
+    <div class="progress-wrap">
+      <div class="progress-line">
+        <div class="step">
+          <div class="icon register">
+          </div>
+          <span>Register<br />to SmartNest</span>
+        </div>
+        <hr class="between" />
+        <div class="step">
+          <div class="icon tell">
+          </div>
+          <span>Tell us who to<br />make the checks out to</span>
+        </div>
+        <hr class="between" />
+        <div class="step">
+          <div class="icon schedule">
+          </div>
+          <span>We Mail the Check<br /><small>We guarantee delivery<br /> in 5 business days</small></span>
+        </div>
+        <hr class="between" />
+        <div class="step">
+          <div class="icon paperplane">
+          </div>
+          <span>Schedule your rent:<br /><small>One time or recurring</small></span>
+        </div>
+      </div>
+    </div>
+    <form name="emailForm" class="email-form" autocomplete="off" ng-submit="emailForm.$valid && next(user)" novalidate>
+      <div class="input-group add-on">
+        <input class="form-control" placeholder="Your email address" name="email" id="email" ng-model="user.email" type="email" error-message unique-email required />
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit">Schedule My Rent</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="why-smartnest col-xs-12">
+    <h1>Why Smartnest?</h1>
+    <div class="reasons">
+      <div class="reason col-md-4 col-xs-6">
+        <div class="icon credit">
+        </div>
+        <h2>ONLINE & SECURE</h2>
+        <p class="text">Pay with <b>Credit Card (2.5% fee)</b><br /> or <b>Debit Card (FREE!)</b></p>
+      </div>
+      <div class="reason col-md-4 col-xs-6">
+        <div class="icon help">
+        </div>
+        <h2>WE HELP YOU OUT</h2>
+        <p class="text">Our service allows<br />you to <b>finance your rent.</b></p>
+      </div>
+      <div class="reason col-md-4 col-xs-6">
+        <div class="icon recurring">
+        </div>
+        <h2>NEVER PAY LATE AGAIN</h2>
+        <p class="text">Set up<br /><b>recurring payments.</b></p>
+      </div>
+      <div class="reason col-md-4 col-md-offset-2 col-xs-6">
+        <div class="icon collect">
+        </div>
+        <h2>WHY NOT</h2>
+        <p class="text"><b>Collect points</b> and <b>frequent flyer<br />miles</b> on credit cards!</p>
+      </div>
+      <div class="reason col-md-4 col-md-offset-0 col-xs-6 col-xs-offset-3">
+        <div class="icon hand">
+        </div>
+        <h2>WE HANDLE EVERYTHING</h2>
+        <p class="text">Enter your card,<br /><b>we'll mail the check!</b></p>
+      </div>
+    </div>
+  </div>
+</div>

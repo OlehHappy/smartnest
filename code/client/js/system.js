@@ -1,0 +1,22 @@
+angular.module(
+  'smartnest.system',
+  [
+    'ngRoute',
+    'ngCookies',
+    'ngAnimate',
+    'ngMessages',
+    'ngStorage',
+    'ngTouch',
+    'ngToast',
+    'ui.bootstrap',
+    'ui.route',
+    'ui.router',
+    'ui.router.stateHelper',
+    'truncate',
+    'underscore',
+    'angular-loading-bar',
+    'ui.select',
+    'smartnest.filters',
+    'smartnest.directives',
+    'smartnest.services'
+  ]);

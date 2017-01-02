@@ -1,0 +1,41 @@
+<div class="form personal-form form-mui col-xs-12">
+
+  <h2>Let's set up your account</h2>
+
+  <form name="registerForm" ng-submit="registerForm.$valid && next(account)" novalidate>
+    <div class="input mui-form-group col-xs-4">
+      <input id="first_name" name="first_name" class="input-mui mui-form-control" type="text" ng-model="account.first_name" error-message required />
+      <label for="first_name" class="mui-form-floating-label">First Name</label>
+    </div>
+    <div class="input mui-form-group col-xs-4">
+      <input id="last_name" name="last_name" class="input-mui mui-form-control" type="text" ng-model="account.last_name" error-message required />
+      <label for="last_name" class="mui-form-floating-label">Last Name</label>
+    </div>
+    <div class="input mui-form-group col-xs-4">
+      <input id="date" class="input input-mui mui-form-control" type="text" date-picker name="birth_date" ng-model="account.birth_date" error-message required />
+      <label for="date" class="mui-form-floating-label date-label" ng-class="{filled: account.birth_date}">Date of Birth</label>
+    </div>
+    <div class="input mui-form-group col-xs-6">
+      <input id="email" name="email" class="input-mui mui-form-control" type="email" ng-model="account.email" error-message unique-email required />
+      <label for="email" class="mui-form-floating-label">Email Address</label>
+    </div>
+    <div class="input mui-form-group col-xs-6">
+      <input id="phone" name="phone" class="input-mui mui-form-control" type="text" ng-model="account.phone" error-message phone required />
+      <label for="phone" class="mui-form-floating-label">Phone Number</label>
+    </div>
+    <div class="input mui-form-group col-xs-6">
+      <input id="password1" name="password1" class="input-mui mui-form-control" type="password" ng-model="account.password" error-message required />
+      <label for="password1" class="mui-form-floating-label">Create Password</label>
+    </div>
+    <div class="input mui-form-group col-xs-6">
+      <input id="password2" name="password2" class="input-mui mui-form-control" type="password" ng-model="tmp" equals="{{ account.password }}" error-message required />
+      <label for="password2" class="mui-form-floating-label">Confirm Password</label>
+    </div>
+    <div class="buttons col-xs-12">
+      <button type="submit" class="btn btn-info" disable-if-progress>Continue</button>
+    </div>
+  </form>
+  <div class="col-xs-12">
+    <flash-messages type="page"></flash-messages>
+  </div>
+</div>

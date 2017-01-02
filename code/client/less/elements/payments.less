@@ -1,0 +1,144 @@
+/* Batch mark */
+.exported_mark {
+  width: 24px;
+  height: 24px;
+  padding: 5px;
+  color: #111;
+  cursor: pointer;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+
+  &.batchPending:after {
+    content: "";
+    height: 20px;
+    width: 20px;
+    background: #fff;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+  }
+
+  &.pending:after {
+    content: "";
+    height: 20px;
+    width: 20px;
+    background: #fff;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+  }
+  
+  &.nobatch {
+    color: #f00;
+    background-color: none;
+  }
+}
+.exported_mark_text {
+  font-size: 10px;
+}
+
+.withdraw_exported_mark {
+  padding: 5px;
+}
+
+.withdrawn {
+  color: #aaa;
+}
+
+.notification-alert {
+  font-weight: bold;
+  color: #000;
+}
+.unsolved {
+  background: #fcc;
+}
+.checkbox-action {
+  cursor: pointer;
+}
+
+
+// Withdraw modal
+.batches {
+  .selected {
+    font-weight: bold;
+  }
+  .ready {
+    color: #333;
+    &:hover {
+      color: #000;
+    }
+  }
+  .pending {
+    color: #888;
+  }
+  .done {
+    color: #aaa;
+  }
+  
+  td span {
+    vertical-align: middle;
+  }
+}
+
+
+/* re-batch Modal  */
+.rebatchModal {
+  .batch_options {
+    li {
+      margin: 3px 0;
+      &:hover {
+        color: @baseColor;
+      }
+      
+      i {
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+
+/* advanced-export Modal */
+.advanced-export {
+  dialog-body {
+    padding: 0;
+  }
+  
+  .nav-tabs {
+    padding: 0 30px;
+    background: #fff;
+    
+    li a {
+      color: #888;
+      border: 0;
+      line-height: 30px;
+      &:hover {
+        color: #393939;
+        border: 0;
+      }
+    }
+    .level-2;
+  }
+  
+  .tab-pane {
+    padding: @baseLine;
+  }
+}
+
+
+/* PAYGATE CREDENTIALS */
+.paygate_credentials {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.paygate_credentials_field {
+  margin-top: 5px;
+}

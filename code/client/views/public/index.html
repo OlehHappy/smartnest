@@ -1,0 +1,126 @@
+<div class="index-content clearfix">
+  <div class="header"></div>
+  <div class="schedule-rent-wrap">
+    <div class="schedule-rent">
+      <div class="form col-md-5 col-sm-6 col-xs-12">
+        <form name="rentForm" class="col-xs-12" autocomplete="off" ng-submit="rentForm.$valid && next(user)" novalidate>
+          <div class="field rent col-xs-12">
+            <label for="rent">How much is your rent?</label>
+            <input class="input rent" name="rent" type="number" id="rent" placeholder="per month" ng-model="user.rent_amount" error-message min="0" required />
+            <span class="input-text">$</span>
+          </div>
+          <div class="field pay-rent col-xs-12">
+            <label for="date">Pay rent on</label>
+            <input id="pay_date" class="input input-mui mui-form-control" type="text" date-picker name="pay_date" ng-model="pay_date" error-message required />
+          </div>
+          <div class="switch col-xs-12">
+            <div class="switcher-wrapper">
+              <span class="switcher-off" ng-class="{'switcher-active': pay_period}">Every month</span>
+              <div class="switcher">
+                <input type="checkbox" name="switcher" class="switcher-checkbox" id="switch-payments" ng-model="pay_per" ng-change="pay_period = !pay_period">
+                <label class="switcher-label" for="switch-payments" ng-class="{active: pay_period}">
+                  <span class="switcher-inner"></span>
+                  <span class="switcher-switch"></span>
+                </label>
+              </div>
+              <span class="switcher-on" ng-class="{'switcher-active': !pay_period}">Only this time</span>
+            </div>
+          </div>
+          <div class="field email col-xs-12">
+            <label for="email">Your email address</label>
+            <input class="input" name="email" type="email" id="email" placeholder="" ng-model="user.email" error-message unique-email required />
+          </div>
+          <div class="buttons col-xs-12">
+            <button type="submit" class="btn btn-info">Schedule My Rent</button>
+          </div>
+        </form>
+
+        <div class="badges">
+          <div class="badge">
+            Debit card <span>free</span>
+          </div>
+          <div class="badge">
+            Credit card <span>2.5%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="checks col-md-7 col-sm-6 col-xs-12">
+        <h1>Pay your rent<br /> online, <span>today.</span></h1>
+        <span class="text">
+          You'll never have to worry about writing out checks or forgetting to pay on-time.
+          SmartNest pays your landlord directly so you can pay your rent from anywhere.
+        </span>
+        <div class="check">
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-check fa-stack-1x"></i>
+          </span>
+          Pay with <span>Credit Card</span> or <span>Debit Card</span>
+        </div>
+        <div class="check">
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-check fa-stack-1x"></i>
+          </span>
+          Pay to <span>ANY</span> Landlord, anywhere in the US.
+        </div>
+        <div class="check">
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-check fa-stack-1x"></i>
+          </span>
+          Set up <span>recurring payments</span> and never pay late fees again.
+        </div>
+        <div class="check">
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-check fa-stack-1x"></i>
+          </span>
+          <span>Collect points</span> and <span>frequent flyer miles</span> on credit cards!
+        </div>
+        <div class="check">
+          <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-check fa-stack-1x"></i>
+          </span>
+          Pay your rent and we'll take care of the rest.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="work">
+    <h1>How does it work?</h1>
+    <div class="progress-wrap">
+      <div class="progress-line">
+        <div class="step">
+          <div class="icon register">
+          </div>
+          <i>Step 1</i>
+          <span>Register<br />to SmartNest</span>
+        </div>
+        <hr class="between" />
+        <div class="step">
+          <div class="icon tell">
+          </div>
+          <i>Step 2</i>
+          <span>Tell us who to<br />make the checks out to</span>
+        </div>
+        <hr class="between" />
+        <div class="step">
+          <div class="icon schedule">
+          </div>
+          <i>Step 3</i>
+          <span>We Mail the Check<br /><small>We guarantee delivery<br /> in 5 business days</small></span>
+        </div>
+        <hr class="between" />
+        <div class="step">
+          <div class="icon paperplane">
+          </div>
+          <i>Step 4</i>
+          <span>Schedule your rent:<br /><small>One time or recurring</small></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

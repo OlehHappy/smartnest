@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":NumberInt(1),"key":{"_id":NumberInt(1)},"name":"_id_","ns":"smartnest-pay-dev.users"},{"v":NumberInt(1),"unique":true,"key":{"email":NumberInt(1)},"name":"email_1","ns":"smartnest-pay-dev.users","background":true,"safe":null}]}

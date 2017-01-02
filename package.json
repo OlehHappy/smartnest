@@ -1,0 +1,42 @@
+{
+  "name": "SmartNest.Pay",
+  "version": "1.0.7",
+  "private": true,
+  "description": "SmartNest.Pay",
+  "main": "code/server.js",
+  "engines": {
+    "node": "0.10.28",
+    "npm": "2.12.1"
+  },
+  "author": "SmartNest Inc.",
+  "license": "BSD",
+  "scripts": {
+    "install": "bower install && cd code/server && npm install",
+    "test": "export NODE_PATH=$NODE_PATH:`pwd`/node_modules/; node node_modules/grunt-cli/bin/grunt test"
+  },
+  "dependencies": {
+    "bower": "1.4.1",
+    "grunt": "0.4.5",
+    "grunt-cli": "0.1.11",
+    "grunt-concurrent": "1.0.0",
+    "grunt-contrib-concat": "0.4.0",
+    "grunt-contrib-jade": "0.8.0",
+    "grunt-contrib-jshint": "0.11.2",
+    "grunt-contrib-less": "1.0.0",
+    "grunt-contrib-uglify": "0.5.0",
+    "grunt-contrib-watch": "0.6.1",
+    "grunt-env": "0.4.1",
+    "grunt-mocha-test": "0.8.0",
+    "grunt-nodemon": "0.4.0",
+    "jade": "0.35.0",
+    "less": "2.5.1",
+    "mocha": "1.14.0",
+    "nodemailer": "0.5.5",
+    "npm": "2.11.0",
+    "request": "2.34.0",
+    "should": "2.1.1",
+    "supertest": "0.8.2",
+    "view-helpers": "0.1.3",
+    "xunit-file": "0.0.4"
+  }
+}

@@ -1,0 +1,70 @@
+#!/usr/bin/env node
+
+var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development',
+    config = require('../../code/server/config/config'),
+    Q = require('../../code/server/node_modules/q'),
+    _ = require('../../code/server/node_modules/underscore'),
+    path = require('path'),
+    fs = require('fs');
+
+// Bootstrap mongodb
+var db = require('../../code/server/config/database')(config.db, __dirname + '/../../code/server/models'),
+    User = db.model('User'),
+    Contract = db.model('Contract');
+
+
+console.warn('Use STDIN as source for import (json format)');
+console.warn('USAGE: $', path.basename(process.argv[1]), '< <file.json>');
+
+
+var promises = [];
+var contracts = JSON.parse(fs.readFileSync('/dev/stdin').toString());
+
+contracts.forEach( function(c) {
+  var userData = _.extend({
+    role: 'RESIDENT'
+  }, _.pick(c.renter, ['email', 'first_name', 'last_name', 'birth_date', 'phone', 'phone_verified', 'hashed_password', 'salt', 'deleted']));
+
+  var user = new User(userData);
+  promises.push(Q.ninvoke(user, 'save').then( function() {
+    var contractData = _.extend({
+      resident: user._id,
+      address: {
+        street: '1000 Redwood Ln',
+        unit: c.unit && c.unit.unit_number,
+        city: 'Athens',
+        state: 'GA',
+        postal: '30606'
+      },
+      landlord: {
+        company: 'Athens Ridge',
+        address: {
+          street: '1000 Redwood Ln',
+          city: 'Athens',
+          state: 'GA',
+          postal: '30606'
+        }
+      }
+    }, _.pick(c, ['date_from', 'date_to', 'rent_amount', 'rent_day', 'deleted']));
+
+    var contract = new Contract(contractData);
+    return Q.ninvoke(contract, 'save');
+  }, function(err) {
+    if (err.code === 11000) {
+      console.error('Conflict Renter\'s email: ', c.renter.first_name, c.renter.last_name, '(' + c.renter.email + ')');
+      return Q.resolve();
+    };
+
+    return Q.reject(err);
+  }));
+});
+
+Q.all(promises).then( function(contracts) {
+  console.log('DONE');
+  console.log('Imported ' + contracts.length + ' Contracts.');
+  process.exit(0);
+}, function(err) {
+  console.error('ERROR');
+  console.error(err);
+  process.exit(1);
+});

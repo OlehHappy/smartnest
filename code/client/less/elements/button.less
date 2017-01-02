@@ -1,0 +1,147 @@
+// Default button
+.button {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: @actionColor;
+  min-width: 80px;
+
+  //NOTE: source of a lot of issues
+  .transition(all .2s linear);
+  
+  &.notransition {
+    .transition(none);
+  }
+
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    background: @actionColorHover;
+  }
+
+  &:disabled,
+  &:disabled:hover {
+    border: 0;
+    background-color: #ddd !important;
+    color: #fff;
+  }
+}
+
+.inline-label {
+  display: inline-block;
+
+  font-weight: 400;
+}
+
+// Input with button tied together - apply on div
+.input-with-button(@padding-right: 210px) {
+  position: relative;
+
+  input {
+    padding-right: @padding-right;
+    &:focus {
+      border: 1px solid #ccc;
+    }
+  }
+
+  &.valid input {
+    border: 1px solid #60bc4f;
+  }
+
+  button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 0 3px 3px 0;
+    width: auto;
+  }
+}
+
+
+// button themes
+button.good,
+button.bad,
+button.normal,
+button.primary,
+a[role=button],
+span[role=button] {
+  .button;
+}
+
+button.normal {
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #555;
+  &:hover,
+  &:focus {
+    border: 1px solid #999;
+    background: #fff;
+    color: #000;
+  }
+}
+
+div.nav button {
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #555;
+  &:hover,
+  &:focus {
+    border: 1px solid #999;
+    color: #000;
+  }
+}
+
+button.skip {
+  background: #fff;
+  color: #999;
+  font-weight: 400;
+  &:hover,
+  &:focus {
+    color: #333;
+    background: #fff;
+    cursor: pointer;
+  }
+}
+
+button.good {
+  //background: #60bc4f;
+  &:hover,
+  &:focus {
+    //background: #57a947;
+    //color: #fff;
+  }
+}
+
+button.bad {
+  border-radius: 3px;
+  background: #d00000;
+  &:hover,
+  &:focus {
+    background: #a00000;
+    color: #fff;
+  }
+}
+
+button.primary {
+  border-radius: 3px;
+  background: #428bca;
+  &:hover,
+  &:focus {
+    background: #3071a9;
+    color: #fff;
+  }
+}

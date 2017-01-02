@@ -1,0 +1,295 @@
+/* Birthday Import error messages */
+.error_details {
+  cursor: pointer;
+  float: right;
+  color: #888;
+}
+
+.error_details:hover {
+  color: #444;
+}
+
+.record_details {
+  cursor: pointer;
+  float: right;
+  color: #888;
+}
+
+.record_details:hover {
+  color: #444;
+}
+
+/* Balance update result tabs */
+.upload_balance_result > ul > li {
+  cursor: pointer;
+}
+.upload_balance_result > ul > li > a {
+  color: #555;
+}
+.upload_balance_result > ul > li.active > a {
+  font-weight: bold;
+}
+
+
+/* Loading message */
+.tab_loading {
+  text-align: center;
+  margin-top: 100px;
+  background: url(../img/general/loading.gif) no-repeat center;
+  height: 26px;
+}
+
+/* Loading content */
+.loading_content.ng-hide-remove {
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  display: block !important;
+}
+.loading_content.ng-hide-add.ng-hide-add-active,
+.loading_content.ng-hide-remove {
+  opacity: 0;
+}
+.loading_content.ng-hide-add,
+.loading_content.ng-hide-remove.ng-hide-remove-active {
+  opacity: 1;
+}
+
+
+
+// ^^ NEW ^^
+
+section {
+  position: relative;
+}
+
+section:after {
+  content: "";
+  display: block;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  clear: both;
+}
+
+.navbar .nav>li>a.brand {
+  padding-left: 20px;
+  margin-left: 0;
+}
+
+.content {
+  width:100%
+}
+
+
+.contract {
+  border: 1px solid #aaa;
+  margin-bottom: 20px;
+  padding: 10px;
+  overflow: hidden;
+
+  /* Flat Shadow */
+  -webkit-box-shadow: 3px 3px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    3px 3px 0px rgba(50, 50, 50, 0.75);
+  box-shadow:         3px 3px 0px rgba(50, 50, 50, 0.75);
+}
+
+.version {
+  font-size: 10px;
+}
+
+.table_units {
+  margin-bottom: 10px;
+}
+
+.table_units thead {
+  font-weight: bold;
+}
+
+.table_units td {
+  padding: 10px;
+}
+
+/* Edit Property */
+button.modify_units {
+  margin-bottom: 15px;
+}
+
+.more_details {
+  cursor: pointer;
+  color: #888;
+}
+
+.more_details:hover {
+  color: #444;
+}
+
+.apartment {
+  border: 2px solid #aaa;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.new_apartment {
+  border: 1px solid #0f0;
+  background: #dfd;
+}
+.remove_apartment {
+  border: 1px solid #f00;
+  background: #fdd;
+}
+
+.new_unit {
+  border: 1px solid #0f0;
+  background: #dfd !important;
+}
+.remove_unit {
+  border: 1px solid #f00;
+  background: #fdd !important;
+}
+
+.icon_tool_unit {
+  cursor: pointer;
+}
+
+/* Hides footer in AngularJS UI Datepicker */
+.datepicker_hide_footer ul li:not(:first-child) {
+  display: none !important;
+}
+
+.selected_property {
+  background: #fcf357;
+}
+
+/* pop-up with selected property */
+.selected_property_detail {
+  position: absolute;
+  bottom: -5px;
+  right: 20px;
+}
+
+.selected_property_detail .property {
+  padding-top: 15px;
+  margin: 0px;
+}
+
+/* Close cross button */
+.property_detail_close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 38px;
+}
+
+/* Search bar in Map */
+.property_search {
+  position: absolute;
+  top: 35px;
+  left: 100px;
+  padding: 5px;
+
+  color: #fff;
+  background: #4285f4;
+
+  -webkit-box-shadow: 3px 3px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    3px 3px 0px rgba(50, 50, 50, 0.75);
+  box-shadow:         3px 3px 0px rgba(50, 50, 50, 0.75);
+}
+
+.edit_contract_renter {
+  font-size: 1.2em;
+  cursor: pointer;
+}
+.edit_contract_renter:hover {
+  color: #666;
+}
+
+.property_preview_image {
+  position: relative;
+  width: 100%;
+  height: 200px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+// Table record action icons
+.action_icon {
+  color: #aaa;
+  font-size: 1.4em;
+  cursor: pointer;
+  padding: 8px;
+}
+.action_icon:hover {
+  color: inherit;
+}
+.action_icon.plus:hover {
+  color: #57a947;
+}
+.action_icon.trash:hover {
+  color: #d00;
+}
+
+
+/* Box for CSV file to be imported */
+.csv_import {
+  max-width: 500px;
+  padding: 10px;
+  margin: 0 15px 20px 15px;
+  border: 2px #aaa dashed;
+
+  button {
+    margin-top: 10px;
+  }
+}
+
+.top-buffer {
+  margin-top: 15px;
+}
+
+/* Account creation */
+.steps {
+  color: #999;
+
+  label {
+    color: #555;
+  }
+
+  .btn-default {
+    color: #555;
+  }
+
+  .btn {
+    font-weight: bold;
+  }
+}
+
+
+.skip_step_2 {
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 15px;
+}
+.skip_step_2:hover {
+  color: #555;
+}
+
+.step_active {
+  color: #fff;
+  font-weight: bold;
+}
+
+.row_separator {
+  margin-top: 80px;
+}
+
+.send_code_button {
+  color: #fff !important;
+  background: #999;
+}
+
+.send_code_button:hover {
+  background: #777;
+}
+
+.color-green { color: green; }
+.color-gray { color: gray; }

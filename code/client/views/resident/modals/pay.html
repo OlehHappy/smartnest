@@ -1,0 +1,70 @@
+<dialog-body class="modal-pay">
+  <div class="clearfix" ng-hide="processed">
+    <button class="close" ng-click="dismissModal()">×</button>
+    <div class="wrap">
+
+    <div class="pay clearfix">
+      <div class="summary col-xs-12">
+        <div class="header">
+          <span class="line-center">Summary</span>
+        </div>
+        <span class="left col-xs-6">
+          Rent
+        </span>
+        <span class="right col-xs-6">
+          ${{amount | number: 2}}
+        </span>
+
+        <div ng-show="isDebit === false">
+          <span class="left col-xs-6">
+            Credit Card Fee
+          </span>
+          <span class="right col-xs-6">
+            ${{fees.credit | number: 2}}
+          </span>
+        </div>
+
+        <div ng-show="isDebit === true">
+          <span class="left col-xs-6">
+            Debit Card Fee
+          </span>
+          <span class="right col-xs-6">
+            <span ng-show="fees.debit != 0">${{fees.debit | number: 2}}</span>
+            <span ng-show="fees.debit == 0">FREE</span>
+          </span>
+        </div>
+
+        <span class="left total col-xs-6">
+          Total
+        </span>
+        <span class="right col-xs-6">
+          ${{(amount + (isDebit !== undefined ? (isDebit ? fees.debit : fees.credit) : 0)) | number: 2}}
+        </span>
+      </div>
+      <div class="payment col-xs-12">
+        <div class="header">
+          Payment Details
+        </div>
+        <!--TODO recurring -->
+        <braintree-payment contract-id="contract._id" amount="amount" is-debit="isDebit" recurring="recurring" pay-date="pay_date" on-done="setPaymentStatus(true)"></braintree-payment>
+      </div>
+    </div>
+    </div>
+  </div>
+
+
+  <div class="thank-you" ng-show="processed">
+    <span class="fa-stack">
+      <i class="fa fa-circle-o fa-stack-2x"></i>
+      <i class="fa fa-check fa-stack-1x"></i>
+    </span>
+    <span class="thanks col-xs-12">Thank You</span>
+    <span class="using col-xs-12">for using SmartNest</span>
+
+    <span class="text col-xs-12">Feel free to review all of your payments in <a href="" ng-click="dismissModal(); $state.go('^.history.list');"><i class="fa fa-list fa-fw"></i> History</a>
+    placed on the left side menu.</span>
+    <div class="buttons col-xs-12">
+      <button class="finish-button" ng-click="successModal()">Finish Payment</button>
+    </div>
+  </div>
+</dialog-body>

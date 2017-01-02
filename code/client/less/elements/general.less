@@ -1,0 +1,156 @@
+body {
+  width: 100%;
+  height: 100%;
+  .box-sizing(border-box);
+
+  &.state-public {
+    min-width: 0;
+  }
+}
+.clearfix() {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+/* GENERAL */
+html {
+  position: relative;
+  min-height: 100%;
+  height: 100%;
+}
+
+*[ng-click]:not(dialog), a[ui-sref], input[type=checkbox], input[type=radio], select {
+  cursor: pointer;
+}
+
+// General typography
+html, body,
+h1, h2, h3, h4, h5, h6,
+p {
+  font-family: 'SourceSansPro', Ubuntu, Arial, sans-serif;
+  font-size: @baseFont;
+  line-height: @baseLine;
+}
+
+h1 {
+  margin: @baseLine 0;
+  font-size: 30px;
+  line-height: @baseLine * 2;
+
+  @media (max-width: 480px) {
+    margin: @baseLine / 1.5 0;
+    font-size: 26px;
+    line-height: @baseLine * 1.8;
+  }
+}
+
+h2 {
+  margin: @baseLine 0;
+  font-size: 24px;
+  line-height: @baseLine * 2;
+
+  @media (max-width: 480px) {
+    margin: @baseLine / 1.5 0;
+    font-size: 21px;
+    line-height: @baseLine * 1.8;
+  }
+}
+
+h3 {
+  margin: @baseLine 0;
+  font-size: 21px;
+
+  @media (max-width: 480px) {
+    margin: @baseLine / 1.5 0;
+    font-size: 18px;
+    line-height: @baseLine * 1.8;
+  }
+}
+
+h4 {
+  margin: @baseLine 0;
+  font-size: 18px;
+
+  @media (max-width: 480px) {
+    margin: @baseLine / 1.5 0;
+    font-size: 15px;
+    line-height: @baseLine * 1.8;
+  }
+}
+
+p {
+  margin: @baseLine 0;
+
+  @media (max-width: 480px) {
+    margin: @baseLine / 1.5 0;
+  }
+}
+
+a {
+  color: #4a77cc;
+}
+
+
+// General layout
+/*main {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: @baseLine;
+}*/
+
+
+
+//TODO remove this section from this file
+// Typography mixins
+// heading is as label and paragraph below is bold
+.heading-label {
+  margin-bottom: 0;
+  color: #777;
+  font-size: 14px;
+
+  + p, + time {
+    margin-top: 0;
+    font-weight: bold;
+  }
+}
+
+
+// H1 in signin, signup, password forgot
+.signin-heading {
+  color: #444;
+  font-weight: 700;
+  text-align: center;
+}
+
+
+// Description below heading in signin, signup, password
+.signin-description {
+  margin: @baseLine 0 @baseLine 0;
+  color: #999;
+  text-align: center;
+}
+//----
+
+//changed bootstrap responsive skeleton
+.col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8 {
+  @media (max-width: 700px) {
+    width: 100%;
+  }
+}
+.col-xs-3 {
+  @media (max-width: 700px) {
+    width: 50%;
+  }
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+}
+
+

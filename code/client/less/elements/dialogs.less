@@ -1,0 +1,138 @@
+/* DIALOG - modal window */
+@dialogRadius: 8px;
+
+dialog {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  overflow: auto;
+  width: 100%;
+  opacity: 0;
+
+  .transition(opacity .15s linear);
+
+  &.in {
+    opacity: 1;
+  }
+
+  & > div {
+    position: relative;
+    border: 0;
+    border-radius: @dialogRadius;
+    margin: @baseLine*2 auto;
+    max-width: 768px;  
+    background: #f8f8f8;
+    color: #4b4b4d;
+  }
+
+  .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: @baseLine * 2;
+    width: @baseLine * 2;
+    text-align: center;
+
+    color: #fff;    
+      &:hover {    
+        color: #fff;   
+      }
+  }
+
+  header {
+    border-radius: @dialogRadius @dialogRadius 0 0;
+    color: #fff;
+    background: @baseColor;
+    
+    font-weight: bold;
+    text-align: center;
+
+  }
+
+  dialog-body {
+    display: block;
+    padding: @baseLine;
+
+    .buttons {
+      margin: @baseLine 0 0 0;
+      text-align: center;
+      
+      button {
+        margin: 0 8px;
+      }
+    }
+  }
+  
+  h1 {
+    margin: 0 0 @baseLine 0;
+  }
+
+  h2 {
+    text-align: center;
+    margin: 0;
+    padding: 10px 15px;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+
+  fieldset div:last-of-type {
+    margin: 0;
+  }
+
+  .general_modal {
+    
+    text-align: center;
+    .message_body {
+      margin: 0 0 @baseLine 0;
+    }
+
+    .buttons {
+      button {
+        margin: 0 8px;
+      }
+    }
+  }
+}
+
+
+// classes for modal max-width
+.modalWidth200 > div {
+  max-width: 200px;
+}
+.modalWidth300 > div {
+  max-width: 300px;
+}
+.modalWidth400 > div {
+  max-width: 400px;
+}
+.modalWidth500 > div {
+  max-width: 500px;
+}
+.modalWidth600 > div {
+  max-width: 600px;
+}
+.modalWidth700 > div {
+  max-width: 700px;
+}
+.modalWidth800 > div {
+  max-width: 800px;
+}
+.modalWidth900 > div {
+  max-width: 900px;
+}
+
+
+/* END DIALOG */
+.version_mismatch {
+  max-width: 400px;
+
+  .mismatch {
+    text-align: center;
+    modal-header {
+      font-size: 18px;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+<form class="credit-card" name="creditCardForm" novalidate ng-submit="validation.card && pay(card)">
+  <label for="name">Name on Card</label>
+  <input id="name" class="input" type="text" ng-model="card.name" ng-class="{valid: (card.name && validation.name),  invalid: (card.name && !validation.name)}" placeholder="Name on Card" autocomplete="off" ng-change="validateCard()" disable-if-progress>
+
+  <label for="card_number">Card Number</label>
+  <input id="card_number" class="input" type="text" ng-model="card.number" payments-format="card" payments-type-model="type" ng-class="{valid: (card.number && validation.number && type), invalid: (card.number && !validation.number && !type)}" placeholder="Card Number" maxlength="20" autocomplete="off" ng-change="validateCard()" disable-if-progress>
+  
+  <div style="float: left; margin-right: 20px;">
+    <label>Expiration Date</label>
+    <div>
+      <select ng-model="card.expiration_month" ng-class="{valid: (card.expiration_month.value && validation.expiration_date), invalid: (card.expiration_month.value && !validation.expiration_date)}" ng-options="option.label for option in options.expiration_month" ng-change="validateCard()" disable-if-progress>
+        <option value="">Month</option>
+      </select>
+      /
+      <select ng-model="card.expiration_year" ng-class="{valid: (card.expiration_year.value && validation.expiration_date), invalid: (card.expiration_year.value && !validation.expiration_date)}" ng-options="option.label for option in options.expiration_year" ng-change="validateCard()" disable-if-progress>
+        <option value="">Year</option>
+      </select>
+    </div>
+  </div>
+  <div style="float: left; width: 100px;">
+    <label for="card_cvv">Security Code</label>
+    <input id="card_cvv" class="input" type="text" ng-model="card.cvv_code" ng-class="{valid: (card.cvv_code && validation.cvv_code), invalid: (card.cvv_code && !validation.cvv_code)}" placeholder="CVV Code" maxlength="4" autocomplete="off" ng-change="validateCard()" disable-if-progress>
+  </div>
+  <div style="clear: both;"></div>
+
+  <div class="pay-button-wrapper">
+    <button type="submit" class="checkout-button" ng-class="{'disable-if-progress': isProgress}" ng-disabled="!validation.card || isProgress">CHECKOUT</button>
+  </div>
+</form>

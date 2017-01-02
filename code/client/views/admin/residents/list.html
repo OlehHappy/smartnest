@@ -1,0 +1,62 @@
+<!-- Contracts -->
+<div class="list col-xs-8">
+
+  <div class="table_options nice-checkboxes">
+    <!-- Search -->
+    <div class="search">
+      <input class="input" type="search" placeholder="Search" ng-model="filter.search" ng-model-options="{debounce: 200}">
+      <span class="cancel_search" ng-show="filter.search" ng-click="filter.search = '';"> ✕</span>
+      <span class="magnifier" ng-hide="filter.search">
+        <i class="fa fa-search"></i>
+      </span>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th scope="col" class="column_sortable" ng-click="orderByField='last_name'; reverseSort = !reverseSort">
+          <span class="text">Name</span>
+          <span class="sorter" ng-class="{active: orderByField == 'last_name'}">
+            <span class="arrow arrow_asc" ng-class="{active: (orderByField == 'last_name') && !reverseSort}"></span>
+            <span class="arrow arrow_desc" ng-class="{active: (orderByField == 'last_name') && reverseSort}"></span>
+          </span>
+        </th>
+        <th scope="col" class="column_sortable">
+          <span class="text">Landlord</span>
+        </th>
+        <th scope="col" class="column_sortable" ng-click="orderByField='last_login'; reverseSort = !reverseSort">
+          <span class="text">Last Login</span>
+          <span class="sorter" ng-class="{active: orderByField == 'last_login'}">
+            <span class="arrow arrow_asc" ng-class="{active: (orderByField == 'last_login') && !reverseSort}"></span>
+            <span class="arrow arrow_desc" ng-class="{active: (orderByField == 'last_login') && reverseSort}"></span>
+          </span>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- Residents -->
+      <tr ng-repeat="r in filteredResidents = (residents | orderBy:orderByField:reverseSort | search: filter.search | filter: applyFilters)"
+          ng-click="$state.go('admin.residents.list.detail', {userId: r._id});"
+          ng-class="{active: isResidentSelect(r._id)}">
+        <td title="Name">{{r.first_name}} {{r.last_name}}</td>
+        <td title="Landlord">{{r.contracts[0].landlord.company || r.contracts[0].landlord.first_name + r.contracts[0].landlord.last_name}}</td>
+        <td title="Last Login">{{r.last_login | date: 'mediumDate'}}</td>
+      </tr>
+
+      <!-- No Renters -->
+      <tr ng-hide="residents.length">
+        <td colspan="3">No Residents.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="col-xs-4 detail" scroll-on-top="fixed" ui-view>
+  <div class="not-selected">
+    <i class="fa fa-user"></i>
+    <h2>No resident selected</h2>
+    <p>Select resident to view summary</p>
+  </div>
+</div>

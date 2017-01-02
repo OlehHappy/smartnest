@@ -1,0 +1,93 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>SmartNest Check</title>
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+  <style rel="stylesheet" type="text/css">
+    *, *:before, *:after {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 8.5in;
+      height: 11in;
+      margin: 0;
+      padding: 0;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    h1 {
+      font-weight: normal;
+      font-size: 24px;
+    }
+
+    #ink-free-area {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 8.5in;
+      height: 3.625in;
+    }
+
+    #page-content {
+      position: relative;
+      width: 8.125in;
+      height: 7.1875in;
+      left: 0.1875in;
+      top: 3.625in;
+      background: url('http://i.imgur.com/5SF5m2g.png');
+      background-size: 8.125in 7.1875in;
+      background-repeat: no-repeat;
+    }
+
+    #header {
+      position: relative;
+      top: 250px;
+    }
+
+    #content {
+      position: relative;
+      top: 280px;
+    }
+
+    #content p {
+      margin: 10px 0;
+    }
+
+    #footer {
+      position: relative;
+      top: 460px;
+      font-size: 14px;
+    }
+
+    #footer p {
+      margin: 0;
+    }
+
+    #footer strong {
+      color: #EE6000;
+    }
+  </style>
+</head>
+<body>
+  <div id="ink-free-area"></div>
+  <div id="page-content">
+    <div id="header">
+      <h1>Your resident is using <strong>SmartNest</strong></h1>
+    </div>
+    <div id="content">
+      <p>This payment is on behalf of <strong>{{first_name}} {{last_name}}</strong>.</p>
+      <p>He is resident in <strong>{{city}}</strong>,</p>
+      <p>{{street}} {{unit}}, {{state}} {{postal}}</p>
+    </div>
+    <div id="footer">
+      <p>if you have any further inquiries or would like the money direct deposited,</p>
+      <p>feel free to contact us at <strong>george@mysmartnest.com</strong></p>
+    </div>
+  </div>
+</body>
+</html>

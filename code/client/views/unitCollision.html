@@ -1,0 +1,9 @@
+<div class="alert alert-warning clearfix" ng-show="collisions.length">
+  Contract collides with:
+  <ul>
+    <li ng-repeat="collision in collisions">
+      {{collision.first_name}} {{collision.last_name}}
+      {{collision.date_from | date:'MM/dd/yyyy'}} - {{collision.date_to | date:'MM/dd/yyyy'}}
+    </li>
+  </ul>
+</div>

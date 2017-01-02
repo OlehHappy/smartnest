@@ -1,0 +1,49 @@
+<div class="form form-mui col-xs-12">
+  <form name="infoForm" id="infoForm" ng-submit="infoForm.$valid && updateSettings(user, user_contract, individual)" autocomplete="off" novalidate>
+    <div class="profile-pic col-xs-12 col-md-2">
+      <gravatar email="user.email" />
+      <p>Profile Picture</p>
+    </div>
+    <div class="input mui-form-group col-xs-12 col-md-5">
+      <input id="first_name" name="first_name" class="input-mui mui-form-control" type="text" ng-model="user.first_name" error-message required />
+      <label for="first_name" class="mui-form-floating-label">First Name<span class="warning"></span></label>
+    </div>
+    <div class="input mui-form-group col-xs-12 col-md-5">
+      <input id="last_name" name="last_name" class="input-mui mui-form-control" type="text" ng-model="user.last_name" error-message required />
+      <label for="last_name" class="mui-form-floating-label">Last Name<span class="warning"></span></label>
+    </div>
+    <div class="input mui-form-group col-xs-12 col-md-5">
+      <input id="email" name="email" class="input-mui mui-form-control" type="email" ng-model="user.email" error-message unique-email="tmp.email" required />
+      <label for="email" class="mui-form-floating-label">Email Address<span class="warning"></span></label>
+    </div>
+    <div class="input mui-form-group col-xs-12 col-md-5">
+      <input id="phone" name="phone" class="input-mui mui-form-control" type="text" ng-model="user.phone" error-message phone required />
+      <label for="phone" class="mui-form-floating-label">Phone Number<span class="warning"></span></label>
+    </div>
+    <p class="col-xs-12">What's your address?</p>
+    <div class="input mui-form-group col-xs-12 col-md-6">
+      <input id="address" name="address" class="input-mui mui-form-control" type="text" ng-model="user_contract.address.street" error-message required />
+      <label for="address" class="mui-form-floating-label">Address<span class="warning"></span></label>
+    </div>
+    <div class="input mui-form-group col-xs-5 col-md-2">
+      <input id="unit" name="unit" class="input-mui mui-form-control" type="text" ng-model="user_contract.address.unit" />
+      <label for="unit" class="mui-form-floating-label">Unit<span class="warning"></span></label>
+    </div>
+    <div class="input mui-form-group col-xs-7 col-md-4">
+      <input id="city" name="city" class="input-mui mui-form-control" type="text" ng-model="user_contract.address.city" error-message required />
+      <label for="city" class="mui-form-floating-label">City<span class="warning"></span></label>
+    </div>
+    <div class="input mui-form-group mui-select col-xs-6 col-md-4">
+      <input select-state="USA" id="state" name="state" class="input-mui mui-form-control" ng-model="user_contract.address.state" error-message required />
+      <label for="state" class="mui-form-floating-label">State<span class="warning"></span></label>
+    </div>
+    <div class="input mui-form-group col-xs-6 col-md-2">
+      <input id="zip" name="zip" class="input-mui mui-form-control" type="text" ng-model="user_contract.address.postal" error-message required />
+      <label for="zip" class="mui-form-floating-label">Zip Code<span class="warning"></span></label>
+    </div>
+    <div class="buttons col-xs-12">
+      <flash-messages type="page"></flash-messages>
+      <button type="submit" class="btn btn-info">Apply Changes</button>
+    </div>
+  </form>
+</div>

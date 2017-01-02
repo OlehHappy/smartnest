@@ -1,0 +1,100 @@
+@keyframes progress {
+  to {
+    background-position: 50px 0;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    .rotate(0deg);
+  }
+  100% {
+    .rotate(360deg);
+  }
+}
+
+div.flash-messages {
+  margin-top: 15px;
+
+  /* Progress animated message */
+  .progress {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    background: #282828;
+    width: 100%;
+    margin-bottom: 30px;
+
+    .message {
+      padding: 15px 0;
+      margin: 0;
+      width: 100%;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+
+      .animation(progress 1s linear infinite);
+
+      background-repeat: repeat-x;
+      background-size: 50px 50px;
+      background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+      background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    }
+
+    .bar {
+      background: #f2a130;
+      background: -moz-linear-gradient(-45deg, #f2a130 0%, #e5bd6e 100%);
+      background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #f2a130), color-stop(100%, #e5bd6e));
+      background: -webkit-linear-gradient(-45deg, #f2a130 0%, #e5bd6e 100%);
+      background: -o-linear-gradient(-45deg, #f2a130 0%, #e5bd6e 100%);
+      background: -ms-linear-gradient(-45deg, #f2a130 0%, #e5bd6e 100%);
+      background: linear-gradient(135deg, #f2a130 0%, #e5bd6e 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f2a130', endColorstr='#e5bd6e', GradientType=1);
+    }
+  }
+}
+
+/* Disabled submit button during progress action */
+button.disable-if-progress {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -11px;
+    width: 20px;
+    height: 20px;
+    border: 4px solid;
+    border-left-color: transparent;
+    border-radius: 50%;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    .transition(opacity 0.5s);
+    .animation(rotate 1s 0s linear infinite);
+  }
+  &:after {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    width: 0px;
+    .transition(width 0.75s ease-in-out 0.5s);
+  }
+  &:disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+  &:disabled:before {
+    .transition(opacity 1s 0.5s);
+    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+    opacity: 1;
+  }
+  &:disabled:after {
+    -moz-transition-delay: 0s;
+    -o-transition-delay: 0s;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+    width: 20px;
+  }
+}

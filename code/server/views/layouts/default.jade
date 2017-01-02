@@ -1,0 +1,20 @@
+doctype html
+html(xmlns:ng="http://angularjs.org", lang="en", ng-app="smartnest")
+
+  include ../includes/head
+
+  body(id="{{ $root.bodyId }}", ng-class="bodyClass", itemscope, itemtype="http://schema.org/WebPage")
+    toast
+    main(ng-class="[isNavShown]")
+
+      header(ui-view="header")
+
+      section(class="case")
+
+         block content
+
+      footer
+        &copy; 2015 SmartNest Inc. All Rights Reserved.&nbsp;
+        span.version (r.#{version})
+
+    script(type="text/javascript", src="concated/smartnest-#{version}.js")

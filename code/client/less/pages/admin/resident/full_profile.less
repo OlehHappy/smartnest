@@ -1,0 +1,244 @@
+// class for full profile info
+.state-admin-resident {
+  .fullprofile {
+    span {
+      margin: 0 30px;
+      font-size: 1.5em;
+    }
+    i {
+      color: #999999;
+
+      &:hover {
+        color: @actionColor;
+      }
+    }
+  }
+  .level-2 {
+    li {
+      padding: 0 15px;
+    }
+  }
+  .detail {
+    background: #fff;
+    padding: 0 15px;
+
+    &.fixed {
+      position:fixed;
+      top: 0;
+      right: 0;
+      min-width: 290px;
+      width: ~"calc((100% - 260px) * 0.333)";
+      overflow-y:auto;
+      height: 100%;
+      z-index: 1000;
+    }
+
+    .controls i.fa {
+      color: #999;
+
+      &:hover {
+        color: @actionColor;
+      }
+    }
+    hr {
+      clear: both;
+    }
+  }
+  form {
+    p.error-message {
+      top: auto;
+    }
+  }
+}
+
+
+// info and edit info
+.state-admin-resident-personal {
+  .info {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    padding: 0;
+    .notifications {
+      label {
+        margin-right: 10px;
+      }
+    }
+    .email {
+      display: inline-block;
+      margin-top: 0;
+    }
+    .phone {
+      display: inline-block;
+      margin-left: 1em;
+      margin-top: 0;
+    }
+    ul {
+      @media (max-width: 480px) {
+        padding: 0;
+      }
+    }
+    li {
+      @media (max-width: 700px) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  .editForm {
+    .gender {
+      margin-top: 0.5em;
+
+      input {
+        width: inherit;
+        height: inherit;
+      }
+      label {
+        margin: 2px 10px 1px 0px;
+      }
+      input + label {
+        font-weight: normal;
+      }
+    }
+  }
+  .infoEdit {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    padding: 0;
+    .notifications {
+      label {
+        margin-right: 10px;
+      }
+    }
+    .email, .phone {
+      display: inline-block;
+      margin-left: 1em;
+
+      input {
+        width: inherit;
+        height: inherit;
+      }
+    }
+    ul {
+      @media (max-width: 480px) {
+        padding: 0;
+      }
+    }
+    li {
+      margin-top: 1em;
+    }
+  }
+}
+
+
+// contract and edit contract
+.state-admin-resident-contract {
+  .contracts {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    padding: 0;
+    .controls {
+      float: right;
+      @media (max-width: 700px) {
+        float: left;
+      }
+    }
+    h4 {
+      padding: 0 30px;
+      margin: 30px 0 0 0;
+      @media (max-width: 480px) {
+        padding: 0 15px;
+      }
+    }
+    ul {
+      @media (max-width: 700px) {
+        width: 100%;
+      }
+      @media (max-width: 480px) {
+        padding: 0;
+      }
+    }
+    li {
+      margin-top: 1em;
+      &.col-xs-4 {
+        width: 33.33333333%;
+        @media (max-width: 480px) {
+          width: 50%;
+        }
+      }
+      &.col-xs-3 {
+        @media (max-width: 480px) {
+          width: 50%;
+        }
+      }
+    }
+  }
+
+  .editContracts {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    padding: 0;
+    ul {
+      @media (max-width: 480px) {
+        padding: 0;
+      }
+    }
+    h4 {
+      padding: 0 30px;
+      margin: 30px 0 0 0;
+      @media (max-width: 480px) {
+        padding: 0 15px;
+      }
+    }
+    li {
+      margin-top: 1em;
+    }
+    .waitlist {
+      margin-top: 2em;
+      margin-bottom: 0.5em;
+    }
+    .individual {
+      padding: 0 30px;
+    }
+  }
+
+  .controls{
+    a {
+      display: inline-block;
+      padding: 10px;
+      margin: 0 5px;
+    }
+  }
+}
+
+
+// ledger
+.state-admin-resident-ledger {
+  .fullprofile {
+    span {
+      margin: 0 30px;
+      font-size: 1.5em;
+    }
+  }
+  /* list of Tickets */
+  .ticket_list_fp {
+    margin-top: 0px;
+
+    .pagination {
+      margin-top: @baseLine;
+    }
+  }
+  .status {
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 480px) {
+  nav[role=tablist].level-2 li {
+    margin: 0 5px;
+  }
+  .state-admin-resident-ledger {
+    .ticket_list_fp {
+      padding: 0;
+    }
+  }
+}

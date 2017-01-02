@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+
+set -e            # fail fast
+set -o pipefail   # don't ignore exit codes when piping output
+#set -x          # enable debugging
+
+status() {
+  echo "-----> $*"
+}
+
+indent() {
+  sed -u 's/^/       /'
+}
+
+# Directories
+BUILD_DIR=$1
+CACHE_DIR=$2
+ENV_DIR=$3
+PATH=${PATH}:${BUILD_DIR}/vendor/node/bin:${BUILD_DIR}/node_modules/.bin
+
+
+
+# Run subsequent commands from the build path
+cd ${BUILD_DIR}
+
+# Install dependencies
+status "Installing dependencies"
+npm rebuild 2>&1 | indent
+cd code/server
+  npm rebuild 2>&1 | indent
+cd ../..
+
+
+# Build project
+status "Building project"
+grunt compile 2>&1 | indent
+
+# Import DB
+# download Mongo pack, 'mongorestore' and 'mongo'
+if [ ! -f $BUILD_DIR/bin/mongorestore ] || [ ! -f $BUILD_DIR/bin/mongo ]; then
+  status "Downloading MongoDB"
+  BASENAME=mongodb-linux-x86_64-3.0.6
+
+  curl -O http://fastdl.mongodb.org/linux/$BASENAME.tgz
+  tar zxf $BASENAME.tgz $BASENAME/bin/mongorestore
+  mv $BASENAME/bin/mongorestore $BUILD_DIR/bin
+  tar zxf $BASENAME.tgz $BASENAME/bin/mongo
+  mv $BASENAME/bin/mongo $BUILD_DIR/bin
+  rm -rf $BASENAME.tgz $BASENAME
+fi
+
+NODE_ENV=$(cat ${ENV_DIR}/NODE_ENV)
+
+if [ "${NODE_ENV}" != "prod" ] && [ "${NODE_ENV}" != "client" ]; then
+
+  URI=$(cat ${ENV_DIR}/MONGOLAB_URI)
+
+  proto="$(echo ${URI} | grep :// | sed -e's,^\(.*://\).*,\1,g')"
+  url="$(echo ${URI/$proto/})"
+  user="$(echo $url | grep : | cut -d: -f1)"
+  pass="$(echo $url | grep : | cut -d: -f2 | cut -d@ -f1)"
+  host="$(echo ${url/$user:$pass@/} | cut -d/ -f1)"
+  db="$(echo $url | grep / | cut -d/ -f2-)"
+
+  # reset DB
+  status "MongoDB restore"
+  ${BUILD_DIR}/bin/mongorestore --drop -h ${host} -u ${user} -p ${pass} -d ${db} ${BUILD_DIR}/db/smartnest-pay-dev
+
+  # set unified password for renters
+  # password: "1"
+  status "Setting passwords for Renters"
+
+  ${BUILD_DIR}/bin/mongo ${host}/${db} -u ${user} -p ${pass} --eval 'db.users.update({role: "user"}, {$set: {"salt" : "69195873112", hashed_password: "67d107e19bb3a8bfa0e8a31f65c9022b3d1df732"}}, {multi: true})'
+
+fi

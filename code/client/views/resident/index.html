@@ -1,0 +1,22 @@
+<div class="sidebar" ng-class="[isNavOpened, isNavShown]" ng-swipe-right="toggleNav(true)" ng-swipe-left="toggleNav(false)">
+  <!-- SmartNest logo -->
+  <a ui-sref="root" class="logo">SmartNest</a>
+
+  <nav>
+    <ul>
+      <li>
+        <a ui-sref="resident.paymyrent" ng-class="{'active': $state.includes('**.paymyrent.**')}" ng-click="showNav()"><i class="fa fa-usd fa-fw"></i> <span>Pay my Rent</span></a>
+      </li>
+      <li>
+        <a ui-sref="resident.history.list" ng-class="{'active': $state.includes('**.history.**')}" ng-click="showNav()"><i class="fa fa-list fa-fw"></i> <span>Payment History</span></a>
+      </li>
+      <li>
+        <a ui-sref="resident.settings.personal" ng-class="{'active': $state.includes('**.settings.**')}" ng-click="showNav()"><i class="fa fa-cog fa-fw"></i> <span>Settings</span></a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<div class="content">
+  <div ui-view></div>
+</div>

@@ -1,0 +1,48 @@
+<!-- Search field and filters -->
+<div class="table-options nice-checkboxes col-xs-5">
+  <div class="search">
+    <input class="input" ng-model="filter.search" placeholder="Search" ng-change="current_page = 0"/>
+    <span class="cancel_search" ng-show="filter.search" ng-click="filter.search = ''; current_page = 0">&#10005;</span>
+    <span class="magnifier" ng-hide="filter.search">
+      <i class="fa fa-search"></i>
+    </span>
+  </div>
+
+  <!-- Payment Gateway filters -->
+  <!-- <div class="gateway_filters">
+    <label class="filter" ng-class="{inactive: !(filter.gateway_filter == 'all')}">
+      <input type="radio" value="all" ng-model="filter.gateway_filter" ng-click="current_page = 0">
+      <span class="icon">
+      <span class="fa-stack">
+        <i class="fa fa-circle-o fa-stack-2x"></i>
+        <i class="fa fa-circle fa-stack-1x"></i>
+      </span>
+    </span> All
+    </label>
+    <label class="filter" ng-class="{inactive: !(filter.gateway_filter == 'BRAINTREE')}">
+      <input type="radio" value="BRAINTREE" ng-model="filter.gateway_filter" ng-click="current_page = 0">
+      <span class="icon">
+      <span class="fa-stack">
+        <i class="fa fa-circle-o fa-stack-2x"></i>
+        <i class="fa fa-circle fa-stack-1x"></i>
+      </span>
+    </span> Braintree
+    </label>
+  </div> -->
+</div>
+
+
+<div>
+  <!-- Content -->
+  <div ui-view class="payments-table col-xs-12"></div>
+
+  <!-- client side pagination -->
+  <nav class="pagination col-xs-12" ng-show="filteredData.length > page_chunk">
+    <button class="normal" ng-disabled="!current_page" ng-click="current_page = current_page - 1" rel="prev">Prev</button>
+    <button class="normal" ng-disabled="(current_page + 1) * page_chunk >= filteredData.length" ng-click="current_page = current_page + 1" rel="next">Next</button>
+
+    <span class="pagination-note">
+      Showing <span ng-show="filteredData.length > page_chunk">{{ current_page * page_chunk + 1}}-{{ Math.min((current_page + 1) * page_chunk, filteredData.length) }} of</span> {{ filteredData.length }} matches.
+    </span>
+  </nav>
+</div>

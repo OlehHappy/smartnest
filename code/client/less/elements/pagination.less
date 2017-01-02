@@ -1,0 +1,18 @@
+// Pagination
+.pagination() {
+  display: block; //override bootstrap
+  margin: 0; // override bootstrap
+  margin-left: 15px;
+  margin-bottom: 15px;
+}
+
+nav.pagination {
+  .pagination;
+}
+.pagination-note{
+  @media screen and (max-width: 480px) {
+    display: block;
+    margin: 10px 5px 5px;
+    clear: both;
+  }
+}

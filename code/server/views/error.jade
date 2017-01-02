@@ -1,0 +1,15 @@
+extends layouts/default
+
+block vars
+  - var bodyId = 'error'
+
+block content
+  h1 Application Error
+    p
+      | An error occurred in the application and your page could not be served. Please try again in a few moments.
+      | If you are the application owner, check your logs for details.
+
+  #error-message-box
+    #error-stack-trace
+      pre
+        code!= error

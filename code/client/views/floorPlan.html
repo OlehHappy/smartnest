@@ -1,0 +1,6 @@
+<span>
+  <label ng-if="type === 'radios'" ng-repeat="floorPlan in floorPlans" ng-class="{checked: (value == floorPlan._id)}">
+    <input type="radio" name="floor-plan" ng-model="$parent.$parent.value" value="{{ floorPlan._id }}" /> {{ floorPlan.name }}
+  </label>
+  <select ng-if="type === 'select'" class="select floor-plan" ng-model="$parent.value" ng-options="floorPlan._id as floorPlan.name for floorPlan in floorPlans"></select>
+</span>

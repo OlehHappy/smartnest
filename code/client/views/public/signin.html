@@ -1,0 +1,30 @@
+<div class="header"></div>
+<section class="login-page">
+
+  <div class="login-box form-mui">
+
+    <form name="loginForm" ng-submit="loginForm.$valid && signin(user)" novalidate>
+      <p class="perex">Sign in to your account</p>
+      
+      <div class="input mui-form-group">
+        <input id="email" name="email" class="input-mui mui-form-control" type="email" ng-model="user.email" error-message required />
+        <label for="email" class="mui-form-floating-label">Email</label>
+      </div>
+      <div class="input mui-form-group">
+        <input id="password" name="password" class="input-mui mui-form-control" type="password" ng-model="user.password" error-message required />
+        <label for="password" class="mui-form-floating-label">Password</label>
+      </div>
+      <div class="buttons">
+        <button type="submit" class="btn btn-info" disable-if-progress>Sign In</button>
+      </div>
+    </form>
+
+    <flash-messages type="page"></flash-messages>
+  </div>
+
+  <div class="login-underbox">
+    <a ui-sref="^.send_reset">Forgot <strong>password</strong>?</a> /
+    <a ui-sref="^.signup.personal">Don't have an <strong>account</strong>?</a>
+  </div>
+
+</section>

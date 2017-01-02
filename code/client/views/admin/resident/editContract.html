@@ -1,0 +1,91 @@
+<form name="editForm" ng-submit="editForm.$valid && update(contract, individual)" novalidate>
+  <div class="editContracts col-xs-12">
+    <ul class="col-xs-12">
+      <li class="col-xs-4">
+        <label for="date_from">Start Date</label>
+        <input class="input" type="text" date-picker date-utc name="date_from" id="date_from" ng-model="contract.date_from" error-message required />
+      </li>
+       <li class="col-xs-4">
+        <label for="date_to">End Date</label>
+        <input class="input" type="text" date-picker date-utc name="date_to" id="date_to" ng-model="contract.date_to" error-message date-greater-than="{{ contract.date_from }}" required />
+      </li>
+      <li class="col-xs-4">
+        <label for="rent">Rent</label>
+        <input type="number" class="input" id="rent" name="rent" ng-model="contract.rent_amount" error-message />
+      </li>
+    </ul>
+    <h4 class="col-xs-12">Resident's address</h4>
+    <ul class="detail-list col-xs-12">
+      <li class="col-xs-4">
+        <label for="street">Street</label>
+        <input class="input" type="text" name="street" id="street" ng-model="contract.address.street" error-message required />
+      </li>
+      <li class="col-xs-4">
+        <label for="unit">Unit</label>
+        <input class="input" type="text" name="unit" id="unit" ng-model="contract.address.unit" error-message />
+      </li>
+      <li class="col-xs-4">
+        <label for="city">City</label>
+        <input class="input" type="text" name="city" id="city" ng-model="contract.address.city" error-message required />
+      </li>
+      <li class="col-xs-4">
+        <label for="state">State</label>
+        <input select-state="USA" id="state" name="state" class="select" ng-model="contract.address.state" error-message required />
+      </li>
+      <li class="col-xs-4">
+        <label for="postal">Postal Code</label>
+        <input class="input" type="text" name="postal" id="postal" ng-model="contract.address.postal" error-message required />
+      </li>
+    </ul>
+    <h4 class="col-xs-12">Landlord's info</h4>
+    <ul class="detail-list col-xs-12">
+      <li class="col-xs-4">
+        <label for="landlord_email">Email</label>
+        <input class="input" type="email" name="landlord_email" id="landlord_email" ng-model="contract.landlord.email" error-message />
+      </li>
+      <li class="col-xs-8" ng-if="!individual">
+        <label for="landlord_company">Company</label>
+        <input class="input" type="text" name="landlord_company" id="landlord_company" ng-model="contract.landlord.company" error-message required />
+      </li>
+      <li class="col-xs-4" ng-if="individual">
+        <label for="landlord_first_name">Landlord's First Name</label>
+        <input class="input" type="text" name="landlord_first_name" id="landlord_first_name" ng-model="contract.landlord.first_name" error-message required />
+      </li>
+      <li class="col-xs-4" ng-if="individual">
+        <label for="landlord_last_name">Landlord's Last Name</label>
+        <input class="input" type="text" name="landlord_last_name" id="landlord_last_name" ng-model="contract.landlord.last_name" error-message required />
+      </li>
+    </ul>
+    <p class="individual col-xs-12">
+      <a ng-click="setIndividual(false)" ng-show="individual">I want to pay to a company instead</a>
+      <a ng-click="setIndividual(true)" ng-hide="individual">I want to pay to an individual instead</a>
+    </p>
+    <ul class="col-xs-12">
+      <li class="col-xs-4">
+        <label for="landlord_street">Street</label>
+        <input class="input" type="text" name="landlord_street" id="landlord_street" ng-model="contract.landlord.address.street" error-message required />
+      </li>
+      <li class="col-xs-4">
+        <label for="landlord_unit">Unit</label>
+        <input class="input" type="text" name="landlord_unit" id="landlord_unit" ng-model="contract.landlord.address.unit" error-message />
+      </li>
+      <li class="col-xs-4">
+        <label for="landlord_city">City</label>
+        <input class="input" type="text" name="landlord_city" id="landlord_city" ng-model="contract.landlord.address.city" error-message required />
+      </li>
+      <li class="col-xs-4">
+        <label for="landlord_state">State</label>
+        <input select-state="USA" id="landlord_state" name="landlord_state" class="select" ng-model="contract.landlord.address.state" error-message required />
+      </li>
+      <li class="col-xs-4">
+        <label for="landlord_postal">Postal Code</label>
+        <input class="input" type="text" name="landlord_postal" id="landlord_postal" ng-model="contract.landlord.address.postal" error-message required />
+      </li>
+    </ul>
+  </div>
+
+  <div class="buttons clearfix">
+    <button type="button" class="normal" ng-click="$state.go('^.list', {}, {reload: true})">Cancel</button>
+    <button type="submit" class="button">Update</button>
+  </div>
+</form>

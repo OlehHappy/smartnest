@@ -1,0 +1,16 @@
+<div class="flash-messages {{ type }}">
+  <div ng-repeat="message in messages" ng-hide="message.content === undefined">
+    <div ng-show="message.className !== 'progress'" class="alert alert-{{ message.className }}">
+      <i class="fa fa-info-circle fa-fw" ng-show="['success', 'info'].indexOf(message.className) !== -1"></i>
+      <i class="fa fa-exclamation-circle fa-fw" ng-show="message.className === 'warning'"></i>
+      <i class="fa fa-exclamation-triangle fa-fw" ng-show="message.className === 'danger'"></i>
+      <span class="message" ng-bind-html="message.content"></span>
+    </div>
+
+    <div ng-show="message.className === 'progress'" class="progress">
+      <div class="bar">
+        <div class="message" ng-bind-html="message.content"></div>
+      </div>
+    </div>
+  </div>
+</div>

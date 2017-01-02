@@ -1,0 +1,14 @@
+head
+  base(href="#{base_url}")
+  meta(charset="utf-8")
+  meta(name="viewport", content="width=device-width, initial-scale=1")
+  title= appName
+  meta(name="description", content="")
+  meta(property="og:title", content="#{appName}")
+  meta(name="application-name", content="mySmartNest", data-app-version="#{version}", data-pt-project-id="932950")
+
+  link(type="image/x-icon", rel="shortcut icon", href="img/icons/favicon.ico")
+  link(type="text/css", rel="stylesheet", href="css/style.css")  
+    
+  //if lt IE 9
+    script(src="http://html5shim.googlecode.com/svn/trunk/html5.js")

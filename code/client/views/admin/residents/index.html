@@ -1,0 +1,16 @@
+<!-- Tabs navigation -->
+<nav role="tablist" class="level-2">
+  <ul>
+    <li ui-sref-active="active">
+      <a ui-sref="admin.residents.list">List</a>
+    </li>
+
+    <!-- manually add a resident -->
+    <li class="actions" ui-sref-active="active">
+      <a ui-sref="admin.residents.list.add"><i class="fa fa-plus-circle"></i> Add Resident</a>
+    </li>
+  </ul>
+</nav>
+
+<!-- Content -->
+<div ui-view></div>

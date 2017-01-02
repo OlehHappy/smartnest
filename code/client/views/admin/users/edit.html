@@ -1,0 +1,50 @@
+<div class="edit-profile">
+  <h1>Edit Profile</h1>
+
+  <form name="editForm" autocomplete="off" ng-submit="editForm.$valid && update()" novalidate>
+
+    <div class="field" ng-if="user.role == 'pm_admin'">
+      <label for="company_name">Company Name</label>
+      <input class="input" name="company_name" type="text" ng-model="user.company_name" id="company_name" placeholder="Company Name" error-message required />
+    </div>
+
+    <div class="field">
+      <label for="first_name">First Name</label>
+      <input class="input" name="first_name" type="text" ng-model="user.first_name" id="first_name" placeholder="First Name" error-message required />
+    </div>
+
+    <div class="field">
+      <label for="last_name">Last Name</label>
+      <input class="input" name="last_name" type="text" ng-model="user.last_name" id="last_name" placeholder="Last Name" error-message required />
+    </div>
+
+    <div class="field">
+      <label for="new_email">Email</label>
+      <input class="input" name="email" type="email" ng-model="user.email" id="new_email" placeholder="Email" error-message required autocomplete="off" unique-email="'{{excludeEmail}}'" />
+    </div>
+
+    <div class="field">
+      <label for="new_password">New Password</label>
+      <input class="input" name="password" type="password" ng-model="user.password" id="new_password" placeholder="New Password" autocomplete="off" />
+    </div>
+
+    <div class="field">
+      <label for="password_check">Confirm Password</label>
+      <input class="input" name="password_check" type="password" ng-model="password_check" id="password_check" error-message="{equals: 'Passwords do not match'}" equals="{{ user.password }}" placeholder="Confirm Password" />
+    </div>
+
+    <div class="field">
+      <label for="phone">Phone Number</label>
+      <input class="input" type="tel" name="phone" id="phone" ng-model="user.phone" error-message phone placeholder="Phone" />
+    </div>
+
+    <!-- update result messages -->
+    <div ng-show="successMessage" class="alert alert-success">{{successMessage}}</div>
+    <div ng-show="errorMessage" class="alert alert-danger">{{errorMessage}}</div>
+
+    <div class="buttons">
+      <button type="button" class="normal" ng-click="goBack();">Cancel</button>
+      <button type="submit" class="button admin">Update</button>
+    </div>
+  </form>
+</div>

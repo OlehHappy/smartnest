@@ -1,0 +1,102 @@
+html, body, div, span, p, a, del, em, img, ol, ul, li, fieldset, form, label {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  line-height: 1.4;
+  vertical-align: baseline;
+}
+
+.state-public {
+
+  header {
+    width: 100%;
+    height: 60px;
+    top: 0;
+    margin: 0 auto;
+    background: #009ad0;
+    z-index: 1000;
+    position: relative;
+
+    .smartnest {
+      background: url(../img/general/smartnest_logo2.png) no-repeat;
+      width: 200px;
+      height: 40px;
+      top: 10px;
+      left: 140px;
+      position: absolute;
+      @media (max-width: 1440px) {
+        left: 80px;
+      }
+      @media (max-width: 800px) {
+        left: 30px;
+      }
+      @media (max-width: 390px) {
+        left: 5px;
+        width: 55px;
+      }
+    }
+    .menu {
+      position: absolute;
+      top: 15px;
+      right: 140px;
+      color: #ffffff;
+      @media (max-width: 1440px) {
+        right: 80px;
+      }
+      @media (max-width: 800px) {
+        right: 30px;
+      }
+      @media (max-width: 360px) {
+        right: 5px;
+      }
+
+      a {
+        margin: 0 0 0 20px;
+        color: #ffffff;
+        text-decoration: none;
+        position: relative;
+        display: inline-block;
+        padding: 7px 10px;
+
+        &.signup {
+          .border-radius(3px);
+          border: 1px solid #fff;
+          .transition(all .3s ease-in-out);
+
+          &:hover {
+            background: #fff;
+            color: @baseColor;
+            border: 1px solid @baseColor;
+          }
+          &:hover:before {
+            transform: scaleX(0);
+          }
+        }
+        &:before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 3px;
+          bottom: -3px;
+          left: 0;
+          background-color: #ffffff;
+          visibility: hidden;
+          border-radius: 5px;
+          transform: scaleX(0);
+          transition: .2s linear;
+        }
+        &:hover:before {
+          visibility: visible;
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+}
+a {
+  &:hover {
+    cursor: pointer;
+  }
+}
+

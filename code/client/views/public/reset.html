@@ -1,0 +1,21 @@
+<section class="login-page">
+
+  <div class="login-box form-mui">
+
+    <h1>Change password</h1>
+
+    <form name="resetForm" ng-submit="resetForm.$valid && changePassword(user)" novalidate>
+      <fieldset>
+        <input class="input-mui input" type="password" name="password" ng-model="user.password" id="password" placeholder="New Password" error-message required />
+        <input class="input-mui input" type="password" name="password2" ng-model="user.password1" id="password1" placeholder="Confirm Password" error-message equals="{{ user.password }}" required>
+      </fieldset>
+
+      <div class="buttons">
+        <button type="submit" class="button" disable-if-progress>Change</button>
+      </div>
+    </form>
+
+    <flash-messages type="page"></flash-messages>
+  </div>
+
+</section>

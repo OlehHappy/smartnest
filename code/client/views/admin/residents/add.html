@@ -1,0 +1,139 @@
+<h1>Add New Resident</h1>
+
+
+<form name="addForm" ng-submit="addForm.$valid && createResident(user, contract)" novalidate>
+
+  <div class="big-label-inline-wrapper">
+    <div class="big-label-inline">
+      <label for="first-name">First Name<strong>*</strong></label>
+      <input class="input-inline-big" type="text" id="first-name" name="first-name" ng-model="user.first_name" error-message required />
+    </div>
+    <div class="big-label-inline">
+      <label for="renter-last-name">Last Name<strong>*</strong></label>
+      <input class="input-inline-big" type="text" id="renter-last-name" name="renter-last-name" ng-model="user.last_name" error-message required />
+    </div>
+  </div>
+
+  <ul class="big-label-inline-wrapper">
+    <div class="big-label-inline">
+      <label for="email">Email <i class="fa fa-envelope-o fa-fw"></i><strong>*</strong></label>
+      <input class="input-inline-big" type="email" id="email" name="email" ng-model="user.email" error-message unique-email required />
+    </div>
+    <div class="big-label-inline">
+      <label for="phone">Phone <i class="fa fa-phone fa-fw"></i><strong>*</strong></label>
+      <input class="input-inline-big" type="text" id="phone" name="phone" ng-model="user.phone" error-message phone required />
+    </div>
+  </ul>
+
+  <div class="big-label-inline-wrapper">
+    <div class="big-label-inline">
+      <label for="password">Password<strong>*</strong></label>
+      <input class="input-inline-big" type="password" id="password" name="password" ng-model="user.password" error-message required />
+    </div>
+    <div class="big-label-inline">
+      <label for="password2">Confirm Password<strong>*</strong></label>
+      <input class="input-inline-big" type="password" id="password2" name="password2" ng-model="confirm_password" error-message equals="{{ user.password }}" required />
+    </div>
+  </div>
+
+  <legend class="col-xs-12">Lease</legend>
+
+  <div class="big-label-inline-wrapper">
+    <div class="big-label-inline">
+      <label for="date_from">Start<strong>*</strong></label>
+      <input type="text" date-picker date-utc name="date_from" id="date_from" class="input-inline-big" ng-model="contract.date_from" error-message required />
+    </div>
+    <div class="big-label-inline">
+      <label for="date_to">End<strong>*</strong></label>
+      <input type="text" date-picker date-utc name="date_to" id="date_to" class="input-inline-big" ng-model="contract.date_to" error-message date-greater-than="{{ contract.date_from }}" required />
+    </div>
+    <div class="big-label-inline">
+      <label for="rent">Rent</label>
+      <input type="number" name="rent" id="rent" class="input-inline-big" ng-model="contract.rent_amount" error-message />
+    </div>
+  </div>
+
+  <legend class="col-xs-12">Resident</legend>
+
+  <div class="big-label-inline-wrapper">
+    <div class="big-label-inline">
+      <label for="street">Address<strong>*</strong></label>
+      <input type="text" name="street" id="street" class="input-inline-big" ng-model="contract.address.street" error-message required />
+    </div>
+    <div class="big-label-inline">
+      <label for="unit">Building Unit</label>
+      <input type="text" name="unit" id="unit" class="input-inline-big" ng-model="contract.address.unit" />
+    </div>
+    <div class="big-label-inline">
+      <label for="city">City<strong>*</strong></label>
+      <input type="text" name="city" id="city" class="input-inline-big" ng-model="contract.address.city" error-message required />
+    </div>
+    <div class="big-label-inline">
+      <label for="state">State<strong>*</strong></label>
+      <input select-state="USA" name="state" id="state" class="input-inline-big" ng-model="contract.address.state" error-message required />
+    </div>
+    <div class="big-label-inline">
+      <label for="postal">ZIP Code<strong>*</strong></label>
+      <input type="text" name="postal" id="postal" class="input-inline-big" ng-model="contract.address.postal" error-message required />
+    </div>
+  </div>
+
+  <legend class="col-xs-12">Landlord</legend>
+
+  <div class="big-label-inline-wrapper">
+    <div class="big-label-inline">
+      <label>
+        <input type="checkbox" name="individual" ng-model="individual" ng-change="onIndividualChanged(contract, individual)" /> Pay to an individual
+      </label>
+    </div>
+  </div>
+
+  <div class="big-label-inline-wrapper">
+    <div class="big-label-inline" ng-if="!individual">
+      <label for="company">Company Name<strong>*</strong></label>
+      <input type="text" name="company" id="company" class="input-inline-big" ng-model="contract.landlord.company" error-message required />
+    </div>
+    <div class="big-label-inline" ng-if="individual">
+      <label for="first_name">First Name<strong>*</strong></label>
+      <input type="text" name="first_name" id="first_name" class="input-inline-big" ng-model="contract.landlord.first_name" error-message required />
+    </div>
+    <div class="big-label-inline" ng-if="individual">
+      <label for="last_name">Last Name<strong>*</strong></label>
+      <input type="text" name="last_name" id="last_name" class="input-inline-big" ng-model="contract.landlord.last_name" error-message required />
+    </div>
+    <div class="big-label-inline">
+      <label for="landlord_email">Email</label>
+      <input type="email" name="landlord_email" id="landlord_email" class="input-inline-big" ng-model="contract.landlord.email" error-message />
+    </div>
+  </div>
+
+  <div class="big-label-inline-wrapper">
+    <div class="big-label-inline">
+      <label for="property_street">Address<strong>*</strong></label>
+      <input type="text" name="property_street" id="property_street" class="input-inline-big" ng-model="contract.landlord.address.street" error-message required />
+    </div>
+    <div class="big-label-inline">
+      <label for="property_unit">Building Unit</label>
+      <input type="text" name="property_unit" id="property_unit" class="input-inline-big"  ng-model="contract.landlord.address.unit" />
+    </div>
+    <div class="big-label-inline">
+      <label for="property_city">City<strong>*</strong></label>
+      <input type="text" name="property_city" id="property_city" class="input-inline-big" ng-model="contract.landlord.address.city" error-message required />
+    </div>
+    <div class="big-label-inline">
+      <label for="property_state">State<strong>*</strong></label>
+      <input select-state="USA" name="property_state" id="property_state" class="input-inline-big" ng-model="contract.landlord.address.state" error-message required />
+    </div>
+    <div class="big-label-inline">
+      <label for="property_postal">ZIP Code<strong>*</strong></label>
+      <input type="text" name="property_postal" id="property_postal" class="input-inline-big" ng-model="contract.landlord.address.postal" error-message required />
+    </div>
+  </div>
+
+  <flash-messages type="page"></flash-messages>
+
+  <div class="buttons">
+    <button class="normal" type="button" ui-sref=".^">Cancel</button>
+    <button class="button" type="submit" disable-if-progress>Add Resident</button>
+  </div>
+</form>
